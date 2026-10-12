@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Commission — Knotty Things</title>
+<meta name="description" content="Begin a commission with Knotty Things for a hotel, workplace or private residence.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Josefin+Sans:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css?v=2">
+<style>
+.page{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.5fr);min-height:100vh}
+.side{position:sticky;top:0;height:100vh;background:var(--brass);color:var(--ink);padding:clamp(120px,14vw,170px) var(--gut) 50px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden}
+.side h1{font-size:var(--t-xl);line-height:.95}
+.side h1 em{color:var(--ink)}
+.side p{color:var(--ink);max-width:34ch;margin-top:22px}
+.side .contact{display:grid;gap:6px;font-size:18px}
+.side .contact .label{color:var(--ink);margin-bottom:8px}
+.main{padding:clamp(120px,14vw,170px) var(--gut) 100px}
+.prog{display:flex;gap:6px;margin-bottom:50px}
+.prog span{flex:1;height:2px;background:var(--line);position:relative;overflow:hidden}
+.prog span::after{content:"";position:absolute;inset:0;background:var(--oxblood);transform:scaleX(0);transform-origin:left;transition:transform .6s var(--ease)}
+.prog span.on::after{transform:scaleX(1)}
+.stepname{color:var(--reed);margin-bottom:14px;display:block}
+fieldset{border:0;display:none}
+fieldset.on{display:block;animation:in .7s var(--ease)}
+@keyframes in{from{opacity:0;transform:translateY(14px)}}
+legend{font-size:var(--t-l);line-height:1.05;margin-bottom:36px;font-weight:300}
+.opts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.opt input{position:absolute;opacity:0;pointer-events:none}
+.opt span{display:block;border:1px solid var(--line);padding:22px 22px;cursor:pointer;transition:.3s;font-size:22px;line-height:1.2;height:100%}
+.opt span small{display:block;font-family:var(--sans);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-3);margin-top:8px}
+.opt input:checked+span{border-color:var(--ink);background:var(--ink);color:var(--bone)}
+.opt input:checked+span small{color:var(--cord)}
+.opt input:focus-visible+span{outline:1px solid var(--brass);outline-offset:3px}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:26px 22px;margin-top:34px}
+.f{display:flex;flex-direction:column;gap:8px;min-width:0}
+.f.full{grid-column:1/-1}
+.f label{font-family:var(--sans);font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--ink-2)}
+.f input,.f select,.f textarea{font:inherit;font-size:21px;background:transparent;border:0;border-bottom:1px solid rgba(26,22,19,.3);padding:8px 0;color:var(--ink);border-radius:0;outline:none}
+.f input:focus,.f select:focus,.f textarea:focus{border-color:var(--ink)}
+.works{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.works .opt span{padding:0;font-size:17px;border:0}
+.works .opt img{aspect-ratio:3/4;width:100%;object-fit:cover;border:1px solid transparent;transition:.3s}
+.works .opt em{display:block;font-style:normal;padding:8px 2px 0}
+.works .opt input:checked+span{background:none;color:var(--ink)}
+.works .opt input:checked+span img{outline:2px solid var(--oxblood);outline-offset:3px}
+.works .bespoke span{display:flex;flex-direction:column;justify-content:center;align-items:center;aspect-ratio:3/4;border:1px dashed var(--reed);text-align:center;padding:10px}
+.works .bespoke input:checked+span{background:var(--ink);color:var(--bone)}
+.nav{display:flex;justify-content:space-between;align-items:center;margin-top:48px;gap:16px}
+.err{color:var(--oxblood);min-height:1.4em;margin-top:18px;font-size:17px}
+.review{border-top:1px solid var(--line)}
+.review div{display:grid;grid-template-columns:160px 1fr;gap:16px;padding:14px 0;border-bottom:1px solid var(--line)}
+.review .label{color:var(--reed);padding-top:5px}
+.done{display:none}
+.done.on{display:block;animation:in .8s var(--ease)}
+.done h2{font-size:var(--t-xl);line-height:1;margin-bottom:24px}
+.done h2 em{color:var(--oxblood)}
+@media (max-width:960px){.page{grid-template-columns:1fr}.side{position:relative;height:auto;min-height:60vh;gap:40px}.works{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:560px){.opts,.fields{grid-template-columns:1fr}.works{grid-template-columns:1fr 1fr}.review div{grid-template-columns:1fr;gap:2px}}
+</style>
+</head>
+<body data-page="commission" data-solid>
+<div class="page">
+  <aside class="side" data-hero>
+    <div><span class="label">Commission</span><h1 style="margin-top:22px">Tell us about <em>the space.</em></h1>
+      <p>Share the wall, the light and the story of the place. A member of the studio will reply personally with first thoughts.</p></div>
+    <div class="contact"><span class="label">Or speak to us</span><a href="mailto:contact@theknottythings.com">contact@theknottythings.com</a><a href="tel:+919717040077">+91 97170 40077</a><a href="tel:+919717844077">+91 97178 44077</a></div>
+  </aside>
+
+  <main class="main">
+    <div class="prog" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+    <form id="form" novalidate>
+      <fieldset data-step="1"><span class="stepname label">Step 1 of 4 · You</span><legend>Who are we creating for?</legend>
+        <div class="opts" role="radiogroup">
+          <label class="opt"><input type="radio" name="who" value="Architect / interior designer"><span>Architect or interior designer<small>Specifying for a client</small></span></label>
+          <label class="opt"><input type="radio" name="who" value="Hotel / developer"><span>Hotel or developer<small>Hospitality &amp; real estate</small></span></label>
+          <label class="opt"><input type="radio" name="who" value="Corporate"><span>Corporate workplace<small>Offices &amp; campuses</small></span></label>
+          <label class="opt"><input type="radio" name="who" value="Private residence"><span>Private residence<small>For my own home</small></span></label>
+        </div></fieldset>
+
+      <fieldset data-step="2"><span class="stepname label">Step 2 of 4 · The space</span><legend>Where will the work live?</legend>
+        <div class="opts" role="radiogroup">
+          <label class="opt"><input type="radio" name="space" value="Lobby / reception"><span>Lobby or reception</span></label>
+          <label class="opt"><input type="radio" name="space" value="Restaurant / bar"><span>Restaurant or bar</span></label>
+          <label class="opt"><input type="radio" name="space" value="Suite / bedroom"><span>Suite or bedroom</span></label>
+          <label class="opt"><input type="radio" name="space" value="Living / dining"><span>Living or dining</span></label>
+          <label class="opt"><input type="radio" name="space" value="Atrium / ceiling"><span>Atrium or ceiling</span></label>
+          <label class="opt"><input type="radio" name="space" value="Something else"><span>Something else</span></label>
+        </div>
+        <div class="fields">
+          <div class="f"><label for="loc">City, country</label><input id="loc" name="loc" autocomplete="address-level2"></div>
+          <div class="f"><label for="wall">Wall or space size</label><input id="wall" name="wall" placeholder="e.g. 12 ft × 9 ft"></div>
+        </div></fieldset>
+
+      <fieldset data-step="3"><span class="stepname label">Step 3 of 4 · The work</span><legend>A work from the collection, or something new?</legend>
+        <div class="works" id="works"></div></fieldset>
+
+      <fieldset data-step="4"><span class="stepname label">Step 4 of 4 · Details</span><legend>How can we reach you?</legend>
+        <div class="fields" style="margin-top:0">
+          <div class="f"><label for="nm">Name</label><input id="nm" name="nm" autocomplete="name"></div>
+          <div class="f"><label for="em">Email</label><input id="em" name="em" type="email" autocomplete="email"></div>
+          <div class="f"><label for="ph">Phone (optional)</label><input id="ph" name="ph" type="tel" autocomplete="tel"></div>
+          <div class="f"><label for="tl">Timeline</label><select id="tl" name="tl"><option>Exploring</option><option>Within 3 months</option><option>3–6 months</option><option>6–12 months</option><option>12+ months</option></select></div>
+          <div class="f full"><label for="msg">The story of the place (optional)</label><textarea id="msg" name="msg" rows="3"></textarea></div>
+        </div>
+        <div class="review" id="review" style="margin-top:40px"></div></fieldset>
+
+      <p class="err" id="err" aria-live="polite"></p>
+      <div class="nav"><button type="button" class="link" id="back" style="background:none;border:0;border-bottom:1px solid;cursor:pointer">Back</button><button class="btn" type="submit" id="go">Continue <span class="arr">→</span></button></div>
+    </form>
+    <div class="done" id="done" role="status">
+      <span class="label" style="color:var(--reed)">Received</span>
+      <h2 style="margin-top:18px">Thank you.<br><em>The threads are in motion.</em></h2>
+      <p class="muted" style="max-width:46ch">In this concept nothing is sent. On the live site, this brief reaches the studio and a personal reply follows within two working days.</p>
+      <a class="btn ghost" href="collection.html" style="margin-top:30px">Return to the collection</a>
+    </div>
+  </main>
+</div>
+<script src="assets/data.js?v=2"></script>
+<script src="assets/site.js?v=2"></script>
+<script>
+const q = new URLSearchParams(location.search).get("work");
+const opts = KT.works.filter(w => w.form === "Tapestry").map(w => `<label class="opt"><input type="radio" name="work" value="${w.t}"${q === w.id ? " checked" : ""}><span><img src="img/${w.id}-room.jpg" alt="" loading="lazy"><em>${w.t}</em></span></label>`);
+const sculpt = KT.works.filter(w => w.form !== "Tapestry").map(w => `<label class="opt bespoke"><input type="radio" name="work" value="${w.t}"${q === w.id || (q === "sculpture" && w.id === "billow") ? " checked" : ""}><span>${w.t}<small class="label" style="margin-top:6px;font-size:9px">${w.form}</small></span></label>`);
+document.getElementById("works").innerHTML = `<label class="opt bespoke"><input type="radio" name="work" value="Bespoke / not sure yet"${q ? "" : " checked"}><span>Something bespoke<small class="label" style="margin-top:6px;font-size:9px">Co-create with us</small></span></label>` + sculpt.join("") + opts.join("");
+
+const form = document.getElementById("form"), steps = [...form.querySelectorAll("fieldset")], bars = [...document.querySelectorAll(".prog span")];
+const err = document.getElementById("err"), back = document.getElementById("back"), go = document.getElementById("go");
+let cur = 0;
+function show(n) {
+  cur = n; steps.forEach((s, i) => s.classList.toggle("on", i === n)); bars.forEach((b, i) => b.classList.toggle("on", i <= n));
+  back.style.visibility = n ? "visible" : "hidden"; go.innerHTML = n === steps.length - 1 ? 'Send the brief <span class="arr">→</span>' : 'Continue <span class="arr">→</span>';
+  err.textContent = ""; if (n === steps.length - 1) review();
+}
+const val = n => (form.querySelector(`[name="${n}"]:checked`) || form.elements[n] || {}).value || "";
+function review() {
+  const rows = [["For", val("who")], ["Space", [val("space"), val("loc"), val("wall")].filter(Boolean).join(" · ")], ["Work", val("work")]];
+  document.getElementById("review").innerHTML = rows.map(([k, v]) => `<div><span class="label">${k}</span><span>${v || "—"}</span></div>`).join("");
+}
+function valid() {
+  if (cur === 0 && !val("who")) return "Choose who the work is for.";
+  if (cur === 1 && !val("space")) return "Choose where the work will live.";
+  if (cur === 3) { if (!form.nm.value.trim()) return "Please add your name."; if (!form.em.checkValidity() || !form.em.value) return "Please add a valid email."; }
+  return "";
+}
+form.addEventListener("change", () => { err.textContent = ""; });
+form.onsubmit = e => {
+  e.preventDefault(); const m = valid(); if (m) { err.textContent = m; return; }
+  if (cur < steps.length - 1) { show(cur + 1); scrollTo({ top: 0, behavior: "smooth" }); return; }
+  form.hidden = true; document.querySelector(".prog").hidden = true; document.getElementById("done").classList.add("on");
+};
+back.onclick = () => show(Math.max(0, cur - 1));
+show(0);
+</script>
+</body>
+</html>

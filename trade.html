@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Trade — Knotty Things</title>
+<meta name="description" content="For architects, interior designers and art consultants: specifications, bespoke sizing and project support from Knotty Things.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Josefin+Sans:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css?v=2">
+<style>
+.offer{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line)}
+.offer div{padding:30px 24px 10px 0}
+.offer div+div{padding-left:24px;border-left:1px solid var(--line)}
+.offer .label{color:var(--reed)}
+.offer h3{font-size:var(--t-m);margin:14px 0 10px}
+.offer p{color:var(--ink-2);font-size:18px}
+.tbl{overflow-x:auto;border-top:1px solid var(--line-d)}
+table{width:100%;border-collapse:collapse;min-width:640px}
+th,td{text-align:left;padding:18px 16px 18px 0;border-bottom:1px solid var(--line-d)}
+th{font-family:var(--sans);font-weight:400;font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--brass)}
+td{font-size:19px}
+td.n{font-family:var(--sans);font-size:13px;letter-spacing:.08em;font-variant-numeric:tabular-nums;color:rgba(243,238,230,.75)}
+td a{border-bottom:1px solid transparent;transition:border-color .3s}
+tr:hover td a{border-color:currentColor}
+.sw{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:10px;vertical-align:1px}
+.pack{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:clamp(30px,6vw,100px)}
+.pack h2{font-size:var(--t-l)}
+form{display:grid;grid-template-columns:1fr 1fr;gap:26px 22px}
+.f{display:flex;flex-direction:column;gap:8px;min-width:0}
+.f.full{grid-column:1/-1}
+.f label{font-family:var(--sans);font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--ink-2)}
+.f input,.f select,.f textarea{font:inherit;font-size:20px;background:transparent;border:0;border-bottom:1px solid rgba(26,22,19,.3);padding:8px 0;color:var(--ink);border-radius:0;outline:none}
+.f input:focus,.f select:focus,.f textarea:focus{border-color:var(--ink)}
+.checks{display:flex;flex-wrap:wrap;gap:10px}
+.checks label{display:flex;gap:8px;align-items:center;font-family:var(--sans);font-size:11px;letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--line);padding:10px 14px;border-radius:999px;cursor:pointer;color:var(--ink)}
+.checks input{accent-color:var(--oxblood)}
+.note{grid-column:1/-1;color:var(--reed);min-height:1.5em}
+@media (max-width:960px){.offer{grid-template-columns:1fr 1fr}.offer div:nth-child(3){padding-left:0;border-left:0}.pack{grid-template-columns:1fr}}
+@media (max-width:560px){.offer{grid-template-columns:1fr}.offer div+div{padding-left:0;border-left:0;border-top:1px solid var(--line)}form{grid-template-columns:1fr}}
+</style>
+</head>
+<body data-page="trade" data-header="light">
+<header class="phero"><div class="wrap">
+  <span class="label">For architects, interior designers &amp; art consultants</span>
+  <h1>Specify the <em>handmade.</em></h1>
+  <p>Knotty Things works alongside design teams from concept to installation, for hotels and resorts, corporate offices and ultra-luxury residences.</p>
+</div></header>
+
+<section class="sec" style="padding-top:20px"><div class="wrap">
+  <div class="offer corded">
+    <div class="rv"><span class="label">Specifications</span><h3>Every work, documented</h3><p>Dimensions, materials and palette for each of the sixteen collection works.</p></div>
+    <div class="rv"><span class="label">Bespoke</span><h3>Your size, your palette</h3><p>Collection works re-scaled and re-coloured for a specific wall, or a new work co-created for the project.</p></div>
+    <div class="rv"><span class="label">Materials</span><h3>The knot in hand</h3><p>Cord and reed samples so clients can feel the texture before they commit.</p></div>
+    <div class="rv"><span class="label">Delivery</span><h3>Planned with you</h3><p>Lead times, packaging, mounting and installation scheduled around the site. Share compliance requirements and we'll advise on materials.</p></div>
+  </div>
+</div></section>
+
+<section class="sec dark"><div class="wrap">
+  <div class="sec-head"><h2 class="rv">Specification index</h2><p class="rv">Standard sizes from the 2025 lookbook. Every work can be adapted.</p></div>
+  <div class="tbl rv"><table>
+    <thead><tr><th>Work</th><th>Width</th><th>Height</th><th>Area</th><th>Palette</th><th>Orientation</th></tr></thead>
+    <tbody id="rows"></tbody>
+  </table></div>
+</div></section>
+
+<section class="sec" id="pack"><div class="wrap pack">
+  <div>
+    <div class="eyebrow rv"><span class="rod"></span><span class="label">Trade pack</span></div>
+    <h2 class="rv">Request the<br><em>trade pack.</em></h2>
+    <p class="rv muted" style="margin-top:22px;max-width:40ch">The full lookbook, specifications and a conversation about your project. We reply to trade requests personally.</p>
+  </div>
+  <form id="f" novalidate>
+    <div class="f"><label for="n">Name</label><input id="n" required autocomplete="name"></div>
+    <div class="f"><label for="s">Studio / company</label><input id="s" required autocomplete="organization"></div>
+    <div class="f"><label for="e">Email</label><input id="e" type="email" required autocomplete="email"></div>
+    <div class="f"><label for="c">City, country</label><input id="c"></div>
+    <div class="f full"><label>I'd like</label>
+      <div class="checks"><label><input type="checkbox" checked> Lookbook &amp; specs</label><label><input type="checkbox"> Material samples</label><label><input type="checkbox"> A studio call</label></div></div>
+    <div class="f full"><label for="p">Current project (optional)</label><textarea id="p" rows="2"></textarea></div>
+    <button class="btn" type="submit">Send request <span class="arr">→</span></button>
+    <p class="note" id="note" aria-live="polite"></p>
+  </form>
+</div></section>
+
+<script src="assets/data.js?v=2"></script>
+<script src="assets/site.js?v=2"></script>
+<script>
+const { ft } = KTfmt;
+document.getElementById("rows").innerHTML = KT.works.filter(w => w.form === "Tapestry").map(w => {
+  const a = w.w * w.h;
+  return `<tr><td><a href="work.html?w=${w.id}">${w.t}</a></td><td class="n">${ft(w.w)}</td><td class="n">${ft(w.h)}</td><td class="n">${a % 1 ? a.toFixed(2) : a} sq ft</td><td><span class="sw" style="background:${w.tone}"></span>${w.c}</td><td class="n">${w.w > w.h ? "Landscape" : "Portrait"}</td></tr>`;
+}).join("");
+document.getElementById("f").onsubmit = e => {
+  e.preventDefault(); const f = e.target;
+  const ok = f.n.value.trim() && f.s.value.trim() && f.e.checkValidity();
+  document.getElementById("note").textContent = ok ? "Thank you. In this concept nothing is sent; on the live site this reaches the studio's trade desk." : "Please add your name, studio and a valid email.";
+};
+</script>
+</body>
+</html>

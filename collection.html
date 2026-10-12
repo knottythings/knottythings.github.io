@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Collection — Knotty Things</title>
+<meta name="description" content="Sixteen named macramé tapestries, plus sculpture and suspended installations, by Knotty Things.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Josefin+Sans:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css?v=2">
+<style>
+.bar{position:sticky;top:76px;z-index:20;background:rgba(243,238,230,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-block:1px solid var(--line)}
+.bar .wrap{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;padding-block:14px}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chips button{font-family:var(--sans);font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;border:1px solid var(--line);background:none;padding:10px 16px;border-radius:999px;cursor:pointer;transition:.3s}
+.chips button[aria-pressed="true"]{background:var(--ink);color:var(--bone);border-color:var(--ink)}
+.chips button:hover{border-color:var(--ink)}
+.swatches{display:flex;gap:8px;align-items:center}
+.swatches button{width:22px;height:22px;border-radius:50%;border:1px solid var(--line);cursor:pointer;position:relative}
+.swatches button[aria-pressed="true"]::after{content:"";position:absolute;inset:-5px;border:1px solid var(--ink);border-radius:50%}
+.count{font-family:var(--sans);font-size:10.5px;letter-spacing:.2em;color:var(--ink-3)}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:64px 28px;padding-block:60px 140px}
+.card{display:block;min-width:0}
+.card .im{position:relative;aspect-ratio:4/5;overflow:hidden;background:var(--linen)}
+.card .im img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .8s var(--ease),transform 1.4s var(--ease)}
+.card .im img.d{opacity:0}
+.card:hover .im img.d{opacity:1}
+.card:hover .im img{transform:scale(1.03)}
+.card .row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-top:16px}
+.card h2{font-size:clamp(26px,2.4vw,36px)}
+.card .dims{font-family:var(--sans);font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);white-space:nowrap}
+.card .def{font-style:italic;color:var(--ink-2);font-size:17px;margin-top:4px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card .tag{position:absolute;left:14px;top:14px;z-index:2;background:var(--bone);padding:6px 10px}
+.typo{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:24px;color:var(--bone)}
+.typo b{font-weight:300;font-size:clamp(44px,4.6vw,76px);line-height:.9}
+.typo span{font-family:var(--sans);font-size:10px;letter-spacing:.22em;text-transform:uppercase;opacity:.8;margin-bottom:auto}
+.empty{grid-column:1/-1;text-align:center;color:var(--ink-3);padding:60px 0}
+@media (max-width:960px){
+  .grid{grid-template-columns:1fr 1fr;gap:40px 14px}
+  .bar{top:76px}
+}
+@media (max-width:520px){.grid{grid-template-columns:1fr}.card .dims{font-size:9.5px}}
+</style>
+</head>
+<body data-page="collection" data-header="light">
+<header class="phero"><div class="wrap">
+  <span class="label">Lookbook 2025 – 2026</span>
+  <h1>The Collection</h1>
+  <p>Each work begins with a word, its meaning, and an inspiration from nature, architecture or myth. Then it becomes art, knot by knot.</p>
+</div></header>
+
+<div class="bar"><div class="wrap">
+  <div class="chips" role="group" aria-label="Filter by form">
+    <button aria-pressed="true" data-f="All">All</button><button aria-pressed="false" data-f="Tapestry">Tapestry</button><button aria-pressed="false" data-f="Sculpture">Sculpture</button><button aria-pressed="false" data-f="Installation">Installation</button>
+  </div>
+  <div class="swatches" role="group" aria-label="Filter by palette" id="sw"></div>
+  <span class="count" id="count" aria-live="polite"></span>
+</div></div>
+
+<main class="wrap"><div class="grid" id="grid"></div></main>
+
+<script src="assets/data.js?v=2"></script>
+<script src="assets/site.js?v=2"></script>
+<script>
+const { ft } = KTfmt;
+const families = { Oxblood:["Oxblood"], Natural:["Natural cord","Earthy beige","Beige & metal","Reed & ivory","Reed & red"], Ivory:["Ivory","Ivory & gold"], Gold:["Gold & river reed","Ivory & gold"], Colour:["Sage green","Fuchsia","Silver grey","Charcoal & tan","Terra tones"] };
+const famTone = { Oxblood:"#5C1A2A", Natural:"#C4A47F", Ivory:"#E6DECF", Gold:"#B08A3E", Colour:"linear-gradient(135deg,#6F7D47 0 33%,#B5245E 33% 66%,#6B6E72 66%)" };
+let form = "All", fam = null;
+const sw = document.getElementById("sw");
+sw.innerHTML = Object.keys(families).map(f => `<button aria-pressed="false" data-fam="${f}" title="${f}" aria-label="${f} palette" style="background:${famTone[f]}"></button>`).join("");
+function render() {
+  const list = KT.works.filter(w => (form === "All" || w.form === form) && (!fam || families[fam].includes(w.c)));
+  document.getElementById("count").textContent = `${list.length} work${list.length === 1 ? "" : "s"}`;
+  document.getElementById("grid").innerHTML = list.length ? list.map(w => w.form === "Tapestry"
+    ? `<a class="card" href="work.html?w=${w.id}"><div class="im"><img src="img/${w.id}-room.jpg" alt="${w.t} installed in a room" loading="lazy"><img class="d" src="img/${w.id}-detail.jpg" alt="" loading="lazy"></div>
+       <div class="row"><h2>${w.t}</h2><span class="dims">${ft(w.w)} × ${ft(w.h)}</span></div><p class="def">${w.def[0]}</p></a>`
+    : `<a class="card" href="installations.html#${w.id}"><div class="im"><img src="img/${w.id}-room.jpg" alt="${w.t}, ${w.form.toLowerCase()} by Knotty Things" loading="lazy"></div>
+       <div class="row"><h2>${w.t}</h2><span class="dims">${w.form}</span></div><p class="def">${w.def[0]}</p></a>`).join("")
+    : `<p class="empty">No works match this combination. <button class="link" style="background:none;border:0;border-bottom:1px solid;cursor:pointer" onclick="reset()">Show everything</button></p>`;
+}
+function reset() { form = "All"; fam = null; sync(); render(); }
+function sync() {
+  document.querySelectorAll("[data-f]").forEach(b => b.setAttribute("aria-pressed", b.dataset.f === form));
+  document.querySelectorAll("[data-fam]").forEach(b => b.setAttribute("aria-pressed", b.dataset.fam === fam));
+}
+document.querySelector(".chips").onclick = e => { const b = e.target.closest("button"); if (!b) return; form = b.dataset.f; sync(); render(); };
+sw.onclick = e => { const b = e.target.closest("button"); if (!b) return; fam = fam === b.dataset.fam ? null : b.dataset.fam; sync(); render(); };
+render();
+</script>
+</body>
+</html>

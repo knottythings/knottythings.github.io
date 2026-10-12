@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Knotty Things — Luxuriously Artisanal. Radically Human.</title>
+<meta name="description" content="Knotty Things is a luxury fiber art studio from India creating large-scale macramé tapestries, sculpture and suspended installations for architects, hotels and private residences.">
+<meta name="theme-color" content="#1A1613">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Josefin+Sans:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css?v=2">
+<style>
+.hero{position:relative;height:100svh;min-height:620px;background:#100c0a;color:var(--bone);overflow:hidden}
+.hero .photo,.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 60%;opacity:.84;animation:settle 3.6s var(--ease) both}
+@keyframes settle{from{transform:scale(1.05);opacity:0}to{transform:scale(1);opacity:.84}}
+.hero::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(180deg,rgba(16,12,10,.5) 0%,rgba(16,12,10,0) 22%,rgba(16,12,10,0) 48%,rgba(16,12,10,.86) 100%)}
+.hero .copy{position:absolute;z-index:3;left:0;right:0;bottom:clamp(48px,9vh,96px)}
+.hero .kicker{display:inline-block;color:var(--oxblood);background:var(--bone);padding:8px 10px 8px 14px;margin-bottom:22px}
+.hero h1{font-size:clamp(40px,5.4vw,88px);max-width:15ch}
+.hero h1 em{color:var(--cord)}
+.hero .side{max-width:420px;margin-top:22px;font-size:19px;color:rgba(243,238,230,.78)}
+
+.thesis{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2.4fr);gap:6vw}
+.thesis .big{font-size:clamp(30px,3.6vw,56px);line-height:1.14}
+.thesis .big em{color:var(--oxblood)}
+.thesis .cols{display:grid;grid-template-columns:1fr 1fr;gap:44px;margin-top:56px;color:var(--ink-2)}
+
+.pillars{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:clamp(70px,9vw,120px);border-top:1px solid var(--line)}
+.pillar{padding:34px 34px 0 0}
+.pillar+.pillar{padding-left:34px;border-left:1px solid var(--line)}
+.pillar .label{color:var(--reed)}
+.pillar b{display:block;font-weight:300;font-size:clamp(44px,4.6vw,76px);line-height:1;margin:14px 0 16px;letter-spacing:-.01em}
+.pillar b em{color:var(--oxblood)}
+.pillar p{color:var(--ink-2);font-size:18px;max-width:34ch}
+
+.plates{list-style:none;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px}
+.plates li{display:flex;flex-direction:column;gap:14px;min-width:0}
+.plates .pl{aspect-ratio:3/4;overflow:hidden;background:var(--linen)}
+.plates .pl img{width:100%;height:100%;object-fit:cover}
+.plates .pl.paper{background:#fff}
+.plates .pl.word{display:flex;flex-direction:column;justify-content:flex-end;padding:18px;gap:6px}
+.plates .pl.word b{font-weight:300;font-size:clamp(34px,3.2vw,52px);line-height:1}
+.plates .pl.word .ph{font-family:var(--sans);font-size:12px;color:var(--ink-3)}
+.plates .pl.word span:last-child{font-style:italic;color:var(--ink-2);font-size:15px;line-height:1.35}
+.plates .label{color:var(--reed)}
+
+
+.scales{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.scale{display:flex;flex-direction:column;gap:18px}
+.scale .frame{aspect-ratio:4/5;overflow:hidden;position:relative;background:var(--linen)}
+.scale .frame img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease)}
+.scale:hover .frame img{transform:scale(1.04)}
+.scale .type{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;padding:28px;color:var(--bone)}
+.scale .type .w{font-size:clamp(46px,5vw,84px);line-height:.9;font-weight:300}
+.scale .type .spec{font-family:var(--sans);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;line-height:2;opacity:.85}
+.scale h3{font-size:var(--t-m)}
+.scale .label{color:var(--reed)}
+.scale p{color:var(--ink-2);font-size:18px}
+.scale .frame.billow-bg{background:radial-gradient(120% 90% at 70% 30%,#A9472F 0%,#6E2A1E 55%,#2B1512 100%)}
+.scale .frame.meander-bg{background:#24201C}
+.meander-bg svg{position:absolute;left:28px;right:28px;top:46%;width:calc(100% - 56px);height:auto}
+
+.feature{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(30px,6vw,100px);align-items:center}
+.feature .img-rv{aspect-ratio:4/5}
+.feature .img-rv img{width:100%;height:100%;object-fit:cover}
+.entry .ph{font-family:var(--sans);font-size:13px;letter-spacing:.08em;color:var(--ink-3)}
+.entry h2{font-size:clamp(64px,8vw,132px);line-height:.9;margin:14px 0 6px}
+.entry .pos{font-style:italic;color:var(--ink-2)}
+.entry ol{list-style:none;margin:22px 0 34px;border-left:1px solid var(--brass);padding-left:22px;color:var(--ink-2)}
+.entry ol li{margin-bottom:8px}
+.entry ol li span{font-family:var(--sans);font-size:10px;color:var(--brass);margin-right:8px}
+.entry .story{font-size:22px;line-height:1.5;margin-bottom:34px;max-width:40ch}
+
+.rail-wrap{position:relative}
+.rail{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding-inline:var(--gut);padding-bottom:20px;scrollbar-width:none;cursor:grab}
+.rail::-webkit-scrollbar{display:none}
+.rail a{flex:0 0 clamp(240px,24vw,360px);scroll-snap-align:start}
+.rail .im{aspect-ratio:3/4;overflow:hidden;background:#2a2420}
+.rail img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease),opacity .6s}
+.rail a:hover img{transform:scale(1.05)}
+.rail .meta{display:flex;justify-content:space-between;align-items:baseline;margin-top:16px;gap:10px}
+.rail .meta b{font-weight:300;font-size:28px}
+.rail .meta span{font-family:var(--sans);font-size:10.5px;letter-spacing:.16em;color:rgba(243,238,230,.55);white-space:nowrap}
+.rail-ctl{display:flex;gap:10px}
+.rail-ctl button{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--line-d);background:none;color:var(--bone);cursor:pointer;transition:background .3s}
+.rail-ctl button:hover{background:var(--brass);color:var(--ink);border-color:var(--brass)}
+
+
+.marks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line)}
+.mark{padding:34px 30px 10px 0}
+.mark+.mark{padding-left:30px;border-left:1px solid var(--line)}
+.mark .label{color:var(--reed)}
+.mark h3{font-size:var(--t-m);margin:16px 0 10px}
+.mark p{color:var(--ink-2);font-size:18px}
+
+.arrival{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(30px,6vw,100px);align-items:center}
+.arrival svg{width:100%;height:auto;color:var(--ink)}
+.arrival ul{list-style:none;margin-top:30px;border-top:1px solid var(--line)}
+.arrival li{display:grid;grid-template-columns:120px 1fr;gap:18px;padding:16px 0;border-bottom:1px solid var(--line);font-size:18px}
+.arrival li .label{color:var(--reed);padding-top:5px}
+
+.cta-band{position:relative;overflow:hidden;color:var(--ink);background:var(--brass)}
+.cta-band .wrap{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:40px;align-items:end;padding-block:clamp(90px,11vw,160px)}
+.cta-band h2{font-size:var(--t-xl)}
+.cta-band p{color:var(--ink);margin-bottom:28px}
+.cta-band .btn.ghost:hover{background:var(--ink);border-color:var(--ink);color:var(--bone)}
+
+@media (max-width:960px){
+  .pillars{grid-template-columns:1fr}
+  .pillar+.pillar{padding-left:0;border-left:0;border-top:1px solid var(--line)}
+  .plates{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .plates li:first-child{grid-column:1/-1}
+  .plates li:first-child .pl{aspect-ratio:16/9}
+
+  .thesis,.feature,.arrival,.cta-band .wrap{grid-template-columns:1fr}
+  .thesis .cols{grid-template-columns:1fr}
+  .scales{grid-template-columns:1fr}
+  .marks{grid-template-columns:1fr}
+  .mark+.mark{padding-left:0;border-left:0;border-top:1px solid var(--line)}
+}
+</style>
+</head>
+<body data-page="home">
+
+<section class="hero" data-hero data-video="" aria-label="Introduction">
+  <img class="photo" src="img/hands.jpg?v=2" alt="An artisan's hands working a knot of ivory cord with a brass tool">
+  <div class="copy"><div class="wrap">
+    <span class="label kicker">Fiber art atelier · India</span>
+    <h1>Luxuriously Artisanal. <em>Radically Human.</em></h1>
+    <p class="side">Welcome to the world of intricate fiber art, brought to life through luxuriously handcrafted macramé.</p>
+  </div></div>
+</section>
+
+<section class="sec"><div class="wrap thesis">
+  <div class="eyebrow rv"><span class="rod"></span><span class="label">The studio</span></div>
+  <div>
+    <p class="big rv">Not mass produced. Not machine made. <em>Entirely human.</em> We believe handmade craft belongs at the highest level of luxury, and that the artisans behind it deserve to be celebrated, not forgotten.</p>
+    <div class="cols">
+      <p class="rv">Weaving is both an art and a craft. At the intersection of innovation and tradition lies a path to preserving the irreplaceable techniques of the past while creating new mastery with fiber and its weaves.</p>
+      <p class="rv">Every piece is slow-produced by master craftsmen trained in heritage techniques, using the finest materials, for architects, interior designers, hotels, corporate spaces and luxury residences.</p>
+    </div>
+  </div>
+</div>
+<div class="wrap"><div class="pillars corded">
+  <div class="pillar rv"><span class="label">High-end</span><b>Handmade,<br><em>at the summit.</em></b><p>Not mass produced. Not machine made. Fine cords, brass hardware and hundreds of hours by master hands.</p></div>
+  <div class="pillar rv"><span class="label">Bespoke</span><b>Made for<br><em>one space.</em></b><p>Every work can be re-scaled, re-coloured or co-created from a word that belongs to your space.</p></div>
+  <div class="pillar rv"><span class="label">Scale</span><b>50 mm<br><em>to 70 ft.</em></b><p>From a slender Fila on a single wall to Meander, an installation suspended across a ceiling.</p></div>
+</div></div></section>
+
+<div class="knot-rule"></div>
+<section class="sec plates-sec" id="fiber" aria-labelledby="fbt"><div class="wrap">
+  <div class="sec-head"><h2 id="fbt" class="rv">From fiber<br><em>to art.</em></h2><p class="rv">Okha, in five plates. Every work in the collection travels the same path, from a word to a wall.</p></div>
+  <ol class="plates">
+    <li class="rv"><div class="pl word"><span class="ph">/ˈoʊ.kʰa/</span><b>Okha</b><span>noun · from jharokha, a window with bells</span></div><span class="label">I · The word</span></li>
+    <li class="rv"><div class="pl"><img src="img/jharokha.jpg" alt="A jharokha façade of carved windows" loading="lazy"></div><span class="label">II · The inspiration</span></li>
+    <li class="rv"><div class="pl paper"><img src="img/okha-sketch.jpg" alt="Drawing of Okha" loading="lazy"></div><span class="label">III · The drawing</span></li>
+    <li class="rv"><div class="pl"><img src="img/okha-detail.jpg" alt="Okha knot detail in oxblood cord" loading="lazy"></div><span class="label">IV · The knot</span></li>
+    <li class="rv"><div class="pl"><img src="img/okha-room.jpg" alt="Okha installed beside a rocking chair" loading="lazy"></div><span class="label">V · The space</span></li>
+  </ol>
+  <div class="rv" style="margin-top:44px"><a class="link" href="work.html?w=okha">Read Okha</a></div>
+</div></section>
+
+<div class="knot-rule"></div>
+<section class="sec"><div class="wrap">
+  <div class="sec-head"><h2 class="rv">Three scales of<br><em>one craft.</em></h2><p class="rv">From the wall, into the room, across the ceiling. In 2026 the studio moved from tapestry to sculpture, and now to installations at architectural scale.</p></div>
+  <div class="scales">
+    <a class="scale rv" href="collection.html">
+      <div class="frame img-rv"><img src="img/komyo-room.jpg" alt="Kōmyō, an ivory and gold tapestry above a low credenza" loading="lazy"></div>
+      <span class="label">I · Tapestry</span><h3>On the wall</h3><p>Sixteen named works, 2.5 to 7.5 feet, each born from a word and its meaning.</p>
+    </a>
+    <a class="scale rv" href="installations.html#billow">
+      <div class="frame img-rv"><img src="img/billow-room.jpg" alt="Billow, two terra-red macramé waves on a stainless steel form, hung above a wooden credenza" loading="lazy"></div>
+      <span class="label">II · Sculpture</span><h3>In the room</h3><p>A stainless steel form given its soul in macramé. Inspired by the swell of the sea.</p>
+    </a>
+    <a class="scale rv" href="installations.html#meander">
+      <div class="frame img-rv"><img src="img/meander-room.jpg" alt="Meander, a red and natural macramé installation suspended across the ceiling of a hotel lobby" loading="lazy"></div>
+      <span class="label">III · Installation</span><h3>Across the ceiling</h3><p>Macramé at architectural scale. It is not hung on a wall; it inhabits the space beneath it.</p>
+    </a>
+  </div>
+</div></section>
+
+<section class="sec dark"><div class="wrap">
+  <div class="sec-head"><h2 class="rv">The Collection</h2>
+    <div style="justify-self:end;display:flex;gap:26px;align-items:center" class="rv"><a class="link" href="collection.html">View all works</a><div class="rail-ctl"><button id="prev" aria-label="Scroll collection left"><span data-icon="back"></span></button><button id="next" aria-label="Scroll collection right"><span data-icon="arrow"></span></button></div></div></div>
+</div>
+  <div class="rail" id="rail" tabindex="0" aria-label="Collection, scrollable"></div>
+</section>
+
+<section class="sec"><div class="wrap person" id="founders">
+  <figure class="portrait img-rv"><img src="img/founders.jpg" alt="Megha Awasthy and Prabhat Kumar, founders of Knotty Things, in their studio" loading="lazy" style="object-position:50% 50%"></figure>
+  <div>
+    <div class="eyebrow rv"><span class="rod"></span><span class="label">The founders</span></div>
+    <div class="who rv"><h2>Megha Awasthy &amp; Prabhat Kumar<em>Founders</em></h2></div>
+    <blockquote class="rv">"Handmade craft belongs at the highest level of luxury. And the artisans behind it deserve to be celebrated, not forgotten."</blockquote>
+    <cite class="label rv">Prabhat Kumar · Co-founder</cite>
+    <div class="body rv"><p>Over three decades of collective design mastery and a passion for India's artisanal heritage, pushing the boundaries of material and form, from tapestry to sculpture.</p></div>
+    <a class="link more rv" href="atelier.html#founders">Read their story</a>
+  </div>
+</div></section>
+
+<div class="knot-rule"></div>
+<section class="sec"><div class="wrap person" id="rajaram">
+  <figure class="portrait img-rv"><img src="img/rajaram.jpg" alt="Master craftsman Raja Ram Pradhan holding a ball of oxblood cord in front of a finished tapestry" loading="lazy" style="object-position:60% 30%"></figure>
+  <div>
+    <div class="eyebrow rv"><span class="rod"></span><span class="label">The call of the artisan</span></div>
+    <div class="who rv"><h2>Raja Ram Pradhan<em>Master craftsman</em></h2></div>
+    <blockquote class="rv">"My fingers still remembered the knots, but my heart was forgetting."</blockquote>
+    <cite class="label rv">Raja Ram Pradhan</cite>
+    <div class="body rv"><p>He grew up weaving Madur carpets in a West Bengal village, mastered macramé in export houses, and became an electrician when the pandemic stopped exports. We placed the threads back into his hands.</p></div>
+    <a class="link more rv" href="atelier.html#rajaram">Read his story</a>
+  </div>
+</div></section>
+
+<div class="knot-rule"></div>
+<section class="sec"><div class="wrap">
+  <div class="sec-head"><h2 class="rv">Seen at</h2><p class="rv">Where the work has been shown, and who has stopped to feel it.</p></div>
+  <div class="marks corded">
+    <div class="mark rv"><span class="label">New Delhi · July 2026</span><h3>Indie Haat</h3><p>Visited by Shri Giriraj Singh, Minister of Textiles, who watched our master craftsman knot in real time.</p></div>
+    <div class="mark rv"><span class="label">Hyderabad · from August 2026</span><h3>Ekchitra Art Gallery</h3><p>Represented in Madhapur, curated by fine arts practitioner Annapurna Madipadiga.</p></div>
+    <div class="mark rv"><span class="label">Hyderabad · September 2026</span><h3>Design Democracy 2026</h3><p>HITEX. Three days, more than 200 brands.</p></div>
+  </div>
+  <div style="margin-top:44px" class="rv"><a class="link" href="journal.html">Read the journal</a></div>
+</div></section>
+
+<div class="knot-rule"></div>
+<section class="sec"><div class="wrap arrival">
+  <svg viewBox="0 0 600 360" role="img" aria-label="Drawing of the packaging: a long paper roll with wooden lids at both ends, tied with thread">
+    <g fill="none" stroke="currentColor" stroke-width="1.2">
+      <path d="M110 120 H490"/><path d="M110 240 H490"/>
+      <ellipse cx="110" cy="180" rx="34" ry="60" fill="#C9A776" fill-opacity=".35"/><ellipse cx="110" cy="180" rx="22" ry="42" stroke-opacity=".5"/>
+      <path d="M490 120 A34 60 0 0 1 490 240"/><ellipse cx="490" cy="180" rx="34" ry="60" stroke-dasharray="3 5" stroke-opacity=".4"/>
+      <path d="M492 120 A34 60 0 0 1 492 240 H510 A34 60 0 0 0 510 120 Z" fill="#C9A776" fill-opacity=".35"/>
+      <path d="M200 120 C 204 160, 204 200, 200 240" stroke="#9A7E58" stroke-width="2"/><path d="M400 120 C 404 160, 404 200, 400 240" stroke="#9A7E58" stroke-width="2"/>
+      <path d="M200 240 c -6 18 -18 26 -30 30 M200 240 c 6 18 14 30 26 34" stroke="#9A7E58" stroke-width="1.6"/>
+      <path d="M150 120 H170 M150 240 H170 M430 120 H450 M430 240 H450" stroke-width="6" stroke="#F3EEE6"/>
+    </g>
+    <text x="300" y="320" text-anchor="middle" font-family="Josefin Sans,sans-serif" font-size="11" letter-spacing="3" fill="currentColor" opacity=".55">THE ARRIVAL · NOT TO SCALE</text>
+  </svg>
+  <div>
+    <div class="eyebrow rv"><span class="rod"></span><span class="label">The arrival</span></div>
+    <h2 class="rv" style="font-size:var(--t-l)">The packaging is<br><em>the first artwork.</em></h2>
+    <p class="rv muted" style="margin-top:22px">If the outer experience doesn't feel like Knotty Things, nothing inside it does either. Every work travels rolled, protected and finished by hand.</p>
+    <ul class="rv">
+      <li><span class="label">Body</span>A thick paper roll that absorbs every shock in transit</li>
+      <li><span class="label">Ends</span>Branded wooden lids on both sides</li>
+      <li><span class="label">Finish</span>Tied with beige thread, edged with off-white tape</li>
+    </ul>
+  </div>
+</div></section>
+
+<section class="cta-band"><div class="wrap">
+  <h2 class="rv">Begin a<br><em>commission.</em></h2>
+  <div class="rv"><p>For hotels, workplaces and private residences. Share the wall, the light and the story of the place; we'll respond with a concept.</p><a class="btn ghost" href="commission.html">Start the conversation <span class="arr">→</span></a></div>
+</div></section>
+
+<script src="assets/data.js?v=2"></script>
+<script src="assets/site.js?v=2"></script>
+<script>
+(() => { const h = document.querySelector(".hero"), src = h.dataset.video; if (!src) return;
+  const v = document.createElement("video"); Object.assign(v, { src, muted: true, loop: true, playsInline: true, autoplay: !matchMedia("(prefers-reduced-motion: reduce)").matches, poster: "img/hands.jpg?v=2" });
+  v.setAttribute("aria-hidden", "true"); h.querySelector(".photo").replaceWith(v); })();
+const { ft } = KTfmt, rail = document.getElementById("rail");
+rail.innerHTML = KT.works.filter(w => w.form === "Tapestry").map(w => `<a href="work.html?w=${w.id}"><div class="im"><img src="img/${w.id}-room.jpg" alt="${w.t} installed" loading="lazy"></div><div class="meta"><b>${w.t}</b><span>${ft(w.w)} × ${ft(w.h)}</span></div></a>`).join("");
+const step = () => rail.querySelector("a").offsetWidth + 18;
+document.getElementById("prev").onclick = () => rail.scrollBy({ left: -step() * 2, behavior: "smooth" });
+document.getElementById("next").onclick = () => rail.scrollBy({ left: step() * 2, behavior: "smooth" });
+let down = false, sx = 0, sl = 0, moved = false;
+rail.addEventListener("pointerdown", e => { if (e.pointerType !== "mouse") return; down = true; moved = false; sx = e.clientX; sl = rail.scrollLeft; rail.style.scrollSnapType = "none"; });
+addEventListener("pointermove", e => { if (!down) return; const d = e.clientX - sx; if (Math.abs(d) > 4) moved = true; rail.scrollLeft = sl - d; });
+addEventListener("pointerup", () => { down = false; rail.style.scrollSnapType = ""; });
+rail.addEventListener("click", e => { if (moved) { e.preventDefault(); e.stopPropagation(); } }, true);
+rail.addEventListener("dragstart", e => e.preventDefault());
+</script>
+</body>
+</html>

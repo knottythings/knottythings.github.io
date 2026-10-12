@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Design System — Knotty Things</title>
+<meta name="description" content="The Knotty Things design system: knots as primitives for every line, icon and ornament.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Josefin+Sans:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css?v=2">
+<style>
+.prims{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.prim{background:var(--bone);padding:30px 28px 26px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.prim .glyph{height:120px;display:grid;place-items:center;color:var(--ink);background:var(--paper)}
+.prim .glyph svg{height:72px;width:auto;max-width:80%}
+.prim h3{font-size:var(--t-m)}
+.prim .label{color:var(--reed)}
+.prim p{color:var(--ink-2);font-size:17px}
+.prim .use{font-family:var(--sans);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3);line-height:2;border-top:1px solid var(--line);padding-top:12px}
+.concept{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(30px,6vw,90px);align-items:center}
+.concept figure{background:var(--paper);padding:30px;border:1px solid var(--line)}
+.concept svg{width:100%;height:auto;color:var(--ink)}
+.concept p{color:var(--ink-2);max-width:46ch}
+.icons{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.icons div{background:var(--bone);padding:26px 10px 18px;display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center}
+.icons .ki{width:34px;height:34px}
+.icons span{font-family:var(--sans);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-3)}
+.swatches{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:12px}
+.sw{display:flex;flex-direction:column;gap:10px}
+.sw i{aspect-ratio:1;border:1px solid var(--line)}
+.sw b{font-weight:400;font-size:19px}
+.sw span{font-family:var(--sans);font-size:10px;letter-spacing:.14em;color:var(--ink-3);text-transform:uppercase}
+.rules{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px 60px}
+.rules div{border-top:1px solid var(--line);padding-top:18px}
+.rules h3{font-size:22px;margin-bottom:8px}
+.rules p{color:var(--ink-2);font-size:18px}
+.demo{display:grid;gap:34px;padding:34px;border:1px solid var(--line);background:var(--paper)}
+.demo .row{display:flex;gap:30px;align-items:center;flex-wrap:wrap}
+@media (max-width:960px){.prims{grid-template-columns:1fr 1fr}.concept{grid-template-columns:1fr}.icons{grid-template-columns:repeat(3,minmax(0,1fr))}.swatches{grid-template-columns:repeat(4,minmax(0,1fr))}.rules{grid-template-columns:1fr}}
+@media (max-width:560px){.prims{grid-template-columns:1fr}}
+</style>
+</head>
+<body data-page="system" data-header="light">
+<header class="phero"><div class="wrap">
+  <span class="label">Design system · v1</span>
+  <h1>Knots as <em>primitives.</em></h1>
+  <p>Every line, icon and ornament on the site is built from six things found in the physical work: the knots, the cord ends, and the brass rod each piece hangs from. The digital presence carries the same elements a guest would see beside the work on a wall.</p>
+</div></header>
+
+<section class="sec" style="padding-top:0"><div class="wrap">
+  <div class="sec-head"><h2>Six primitives</h2><p>Drawn with a single 1.15 px cord stroke, rounded ends, in ink, reed or bone. Brass is reserved for hardware.</p></div>
+  <div class="prims" id="prims"></div>
+</div></section>
+
+<div class="knot-rule"></div>
+
+<section class="sec"><div class="wrap concept">
+  <figure aria-label="The page drawn as a hanging macramé piece">
+    <svg viewBox="0 0 300 380" role="img" aria-label="Diagram: header as a brass rod with lark's heads, sections as the body of the piece joined by square knots, footer as the fringe">
+      <g fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round">
+        <rect x="40" y="56" width="220" height="250" stroke-opacity=".25"/>
+        <path d="M40 110 H130 M170 110 H260 M40 180 H130 M170 180 H260 M40 250 H130 M170 250 H260" stroke-opacity=".35"/>
+        <g transform="translate(130 102)"><path d="M0 8 C7 8 9 2.6 14 2.6 C18.5 2.6 17.5 13.4 22 13.4 C27 13.4 29 8 40 8"/><path d="M0 8 C7 8 9 13.4 14 13.4 C18.5 13.4 17.5 2.6 22 2.6 C27 2.6 29 8 40 8"/></g>
+        <g transform="translate(130 172)"><path d="M0 8 C7 8 9 2.6 14 2.6 C18.5 2.6 17.5 13.4 22 13.4 C27 13.4 29 8 40 8"/><path d="M0 8 C7 8 9 13.4 14 13.4 C18.5 13.4 17.5 2.6 22 2.6 C27 2.6 29 8 40 8"/></g>
+        <g transform="translate(130 242)"><path d="M0 8 C7 8 9 2.6 14 2.6 C18.5 2.6 17.5 13.4 22 13.4 C27 13.4 29 8 40 8"/><path d="M0 8 C7 8 9 13.4 14 13.4 C18.5 13.4 17.5 2.6 22 2.6 C27 2.6 29 8 40 8"/></g>
+        <g stroke-opacity=".8"><path d="M52 52 C52 42 60 42 60 52 M54 50 V60 M58 50 V60"/><path d="M92 52 C92 42 100 42 100 52 M94 50 V60 M98 50 V60"/><path d="M132 52 C132 42 140 42 140 52 M134 50 V60 M138 50 V60"/><path d="M172 52 C172 42 180 42 180 52 M174 50 V60 M178 50 V60"/><path d="M212 52 C212 42 220 42 220 52 M214 50 V60 M218 50 V60"/><path d="M244 52 C244 42 252 42 252 52 M246 50 V60 M250 50 V60"/></g>
+        <path d="M50 306 V336 M62 306 V348 M74 306 V330 M86 306 V344 M98 306 V334 M110 306 V350 M122 306 V332 M134 306 V346 M146 306 V336 M158 306 V352 M170 306 V334 M182 306 V344 M194 306 V330 M206 306 V348 M218 306 V336 M230 306 V346 M242 306 V332 M254 306 V340" stroke-opacity=".6"/>
+      </g>
+      <path d="M24 46 H276" stroke="#B4904A" stroke-width="2.2" stroke-linecap="round"/><circle cx="22" cy="46" r="5" fill="#B4904A"/><circle cx="278" cy="46" r="5" fill="#B4904A"/>
+      <g font-family="Josefin Sans,sans-serif" font-size="8" letter-spacing="1.4" fill="#7C7268">
+        <text x="150" y="28" text-anchor="middle">HEADER · THE ROD</text><text x="150" y="88" text-anchor="middle">SECTIONS · THE BODY</text><text x="150" y="372" text-anchor="middle">FOOTER · THE FRINGE</text></g>
+    </svg>
+  </figure>
+  <div>
+    <div class="eyebrow"><span class="rod" data-n="3"></span><span class="label">The organising idea</span></div>
+    <h2 style="font-size:var(--t-l);margin-bottom:22px">The page hangs<br><em>like a piece.</em></h2>
+    <p>Every Knotty Things work hangs from a brass rod, its body is joined knot by knot, and it ends in a fringe. The site follows the same anatomy.</p>
+    <p>The header is the rod, edged with lark's heads once you scroll. Sections are the body, separated by square knots. The footer ends in a fringe of cords. Page changes tie a square knot in the dark.</p>
+  </div>
+</div></section>
+
+<div class="knot-rule"></div>
+
+<section class="sec"><div class="wrap">
+  <div class="sec-head"><h2>Components</h2><p>Live, as used on the site.</p></div>
+  <div class="demo">
+    <div class="row"><div class="eyebrow" style="margin:0"><span class="rod"></span><span class="label">Eyebrow · hanging rod</span></div><div class="eyebrow" style="margin:0"><span class="rod" data-n="3"></span><span class="label">Three cords</span></div></div>
+    <div class="knot-rule" style="padding:0"></div>
+    <div class="corded" style="padding-top:22px"><span class="label" style="color:var(--reed)">Corded row: lists begin with a square knot</span></div>
+    <div class="row"><a class="btn" href="commission.html">Begin a commission <span class="arr"></span></a><a class="btn ghost" href="collection.html">The collection</a><a class="link" href="atelier.html">Text link</a><span class="tag">No. 04</span></div>
+  </div>
+</div></section>
+
+<section class="sec" style="padding-top:0"><div class="wrap">
+  <div class="sec-head"><h2>Icons</h2><p>Built from the same cords. Arrows carry a gathering wrap on the tail; close and expand are tied with a knot at the centre.</p></div>
+  <div class="icons" id="icons"></div>
+</div></section>
+
+<section class="sec" style="padding-top:0"><div class="wrap">
+  <div class="sec-head"><h2>Materials as colour</h2><p>Each colour is named for something in the studio. Oxblood is the one strong accent; brass is only ever hardware.</p></div>
+  <div class="swatches">
+    <div class="sw"><i style="background:#F3EEE6"></i><b>Bone</b><span>Ground</span></div>
+    <div class="sw"><i style="background:#E8E0D3"></i><b>Linen</b><span>Image frames</span></div>
+    <div class="sw"><i style="background:#D7C8B1"></i><b>Raw cord</b><span>On dark</span></div>
+    <div class="sw"><i style="background:#9A7E58"></i><b>River reed</b><span>Labels, knots</span></div>
+    <div class="sw"><i style="background:#B4904A"></i><b>Brass</b><span>Hardware only</span></div>
+    <div class="sw"><i style="background:#5A1828"></i><b>Oxblood</b><span>Accent</span></div>
+    <div class="sw"><i style="background:#1A1613"></i><b>Ink</b><span>Type, dark chapters</span></div>
+  </div>
+</div></section>
+
+<div class="knot-rule"></div>
+
+<section class="sec"><div class="wrap">
+  <div class="sec-head"><h2>Rules</h2><p>How to keep it quiet.</p></div>
+  <div class="rules">
+    <div><h3>One knot per view</h3><p>A primitive marks a structural moment: a section change, a list start, the active page. Never repeat it as decoration.</p></div>
+    <div><h3>Full-bleed only to open</h3><p>Only a page's opening image runs edge to edge. Every other image sits framed in the grid at 4:5 or 3:4, on the bone ground.</p></div>
+    <div><h3>Brass is hardware</h3><p>Brass appears only where metal would be in the studio: rods, end caps, the rod-edge of the header.</p></div>
+    <div><h3>Still by default</h3><p>Motion is limited to a slow settle, a knot tying during page changes, and cords swaying when sound is on. Nothing loops for attention.</p></div>
+    <div><h3>Cord weight, not border</h3><p>Lines are drawn as cord: 1–1.25 px, rounded ends, in reed or ink at low opacity. No boxes, no shadows, no rounded cards.</p></div>
+    <div><h3>From the work, to the room</h3><p>Use the same primitives on hang tags, packaging cards, lookbooks and studio signage so the site and the physical presence feel like one atelier.</p></div>
+  </div>
+</div></section>
+
+<script src="assets/data.js?v=2"></script>
+<script src="assets/site.js?v=2"></script>
+<script>
+const P = [
+  ["k-lark", "Lark's head", "Mounting", "The knot that hangs every cord from the rod. The beginning of a piece.", "Header edge · eyebrows · bullets"],
+  ["k-square", "Square knot", "Joining", "The foundation of macramé: two cords tied around a core. It marks a change.", "Section dividers · active nav · list starts · favicon · page change"],
+  ["k-spiral", "Half-knot spiral", "Rhythm", "One half knot, repeated, turns into a spiral, as in Kōmyō and Reef.", "Progress · long vertical rules"],
+  ["k-wrap", "Gathering wrap", "Binding", "A cord wound around many to bind them. A tassel's neck.", "Arrow tails · groups · tags"],
+  ["k-fringe", "Fringe", "Ending", "The loose ends, combed and cut. Where a piece finishes.", "Footer · sound · drawers"],
+  ["k-rod", "Brass rod & cap", "Hardware", "The rod and end caps every work hangs from.", "Eyebrows · header · brass accents"]
+];
+document.getElementById("prims").innerHTML = P.map(([id, t, role, d, use]) =>
+  `<div class="prim"><div class="glyph">${KTicon(id, "")}</div><span class="label">${role}</span><h3>${t}</h3><p>${d}</p><div class="use">${use}</div></div>`).join("");
+document.querySelectorAll(".prim .glyph svg").forEach(svg => { const vb = document.getElementById(svg.querySelector("use").getAttribute("href").slice(1)).getAttribute("viewBox"); svg.setAttribute("viewBox", vb); });
+const I = [["i-arrow", "Forward"], ["i-back", "Back"], ["i-ext", "External"], ["i-menu", "Menu"], ["i-close", "Close"], ["i-plus", "Expand"]];
+document.getElementById("icons").innerHTML = I.map(([id, n]) => `<div>${KTicon(id)}<span>${n}</span></div>`).join("");
+</script>
+</body>
+</html>

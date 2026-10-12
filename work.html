@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Work — Knotty Things</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Josefin+Sans:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css?v=2">
+<style>
+.top{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);min-height:100vh}
+.stage{position:sticky;top:0;height:100vh;background:var(--linen);overflow:hidden}
+.stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .7s var(--ease)}
+.stage .thumbs{position:absolute;left:var(--gut);bottom:28px;display:flex;gap:8px;z-index:2}
+.stage .thumbs button{width:62px;height:78px;padding:0;border:1px solid rgba(243,238,230,.6);background:none;cursor:pointer;overflow:hidden;opacity:.7;transition:opacity .3s}
+.stage .thumbs button[aria-pressed="true"]{opacity:1;border-color:var(--bone);outline:1px solid var(--bone);outline-offset:3px}
+.stage .thumbs img{position:static;width:100%;height:100%;object-fit:cover}
+.stage .cap{position:absolute;right:var(--gut);bottom:34px;z-index:2;color:var(--bone);text-shadow:0 1px 10px rgba(0,0,0,.4)}
+@media (max-width:620px){.stage .thumbs{gap:6px}.stage .thumbs button{width:44px;height:55px}.stage .cap{bottom:100px}}
+.body{padding:clamp(130px,14vw,190px) var(--gut) 100px}
+.crumbs{display:flex;gap:12px;align-items:center;color:var(--ink-3);margin-bottom:40px}
+.crumbs a:hover{color:var(--ink)}
+.ph{font-family:var(--sans);font-size:13px;letter-spacing:.08em;color:var(--ink-3)}
+h1.t{font-size:clamp(66px,8.4vw,140px);line-height:.88;margin:12px 0 8px}
+.pos{font-style:italic;color:var(--ink-2)}
+.defs{list-style:none;margin:24px 0 0;border-left:1px solid var(--brass);padding-left:22px;color:var(--ink-2)}
+.defs li{margin-bottom:8px}
+.defs li span{font-family:var(--sans);font-size:10px;color:var(--brass);margin-right:8px}
+.lede{font-size:clamp(26px,2.4vw,36px);line-height:1.2;margin:56px 0 24px;color:var(--oxblood);font-style:italic;max-width:22ch}
+.story p{margin-bottom:18px;max-width:48ch}
+.spec{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line);margin:48px 0 40px}
+.spec div{padding:18px 16px 18px 0;border-bottom:1px solid var(--line)}
+.spec div:not(:nth-child(3n+1)){padding-left:16px;border-left:1px solid var(--line)}
+.spec .label{display:block;color:var(--ink-3);font-size:9.5px;margin-bottom:6px}
+.spec b{font-weight:400;font-size:20px}
+.actions{display:flex;gap:14px;flex-wrap:wrap}
+.mat{display:flex;gap:16px;align-items:baseline;margin:-16px 0 18px;color:var(--ink-2)}
+.mat .label{color:var(--ink-3);font-size:9.5px}
+.atelier{font-style:italic;color:var(--ink-2);margin-bottom:34px;max-width:46ch;border-left:1px solid var(--brass);padding-left:16px}
+.atelier b{font-weight:500;font-style:normal;color:var(--ink)}
+.insp{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:clamp(30px,6vw,90px);align-items:center}
+.insp .img-rv{aspect-ratio:4/3}
+.insp .img-rv img{width:100%;height:100%;object-fit:cover}
+.insp blockquote{font-size:var(--t-m);font-style:italic;line-height:1.3}
+.viz{display:grid;grid-template-columns:minmax(0,2.2fr) minmax(0,1fr);gap:clamp(24px,4vw,60px);align-items:start}
+.viz figure{background:transparent;border:1px solid var(--line);padding:clamp(14px,2vw,28px)}
+.viz svg{width:100%;height:auto;display:block}
+.viz .ctl{display:grid;gap:22px}
+.viz label{display:flex;flex-direction:column;gap:10px}
+.viz input[type=range]{width:100%;accent-color:var(--oxblood)}
+.viz output{font-family:var(--sans);font-size:13px;letter-spacing:.1em}
+.viz .fit{font-size:18px;padding:14px 16px;background:var(--linen)}
+.next{display:grid;grid-template-columns:1fr 1fr}
+.next a{padding:46px 0;display:flex;flex-direction:column;gap:8px}
+.next a+a{text-align:right;border-left:1px solid var(--line);padding-left:24px}
+.next b{font-weight:300;font-size:var(--t-l);line-height:1}
+.next .label{color:var(--reed)}
+@media (max-width:960px){
+  .top{grid-template-columns:1fr;position:relative}
+  .back{position:absolute;top:92px;left:var(--gut);z-index:5;margin:0;background:rgba(243,238,230,.9);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:11px 16px;border-radius:999px;color:var(--ink)}
+  .stage{position:relative;height:78vh}
+  .spec{grid-template-columns:1fr 1fr}
+  .spec div:not(:nth-child(3n+1)){padding-left:0;border-left:0}
+  .spec div:nth-child(even){padding-left:16px;border-left:1px solid var(--line)}
+  .insp,.viz{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body data-page="collection" data-header="light">
+<main id="app"></main>
+<script src="assets/data.js?v=2"></script>
+<script src="assets/site.js?v=2"></script>
+<script>
+const { ft } = KTfmt;
+const id = new URLSearchParams(location.search).get("w") || "komyo";
+const tapestries = KT.works.filter(w => w.form === "Tapestry");
+let w = KT.works.find(x => x.id === id);
+if (w && w.form !== "Tapestry") location.replace("installations.html#" + w.id);
+if (!w) w = tapestries[0];
+const i = tapestries.indexOf(w), prev = tapestries[(i - 1 + tapestries.length) % tapestries.length], next = tapestries[(i + 1) % tapestries.length];
+document.title = `${w.t} — Knotty Things`;
+// Views: room, detail, any extra close-ups (w.more = how many img/<id>-detail-2.jpg, -3.jpg … exist), then the inspiration.
+const shots = [["room", "In situ"], ["detail", "Detail"]]
+  .concat(Array.from({ length: w.more || 0 }, (_, j) => [`detail-${j + 2}`, "Close-up"]))
+  .concat(w.insp ? [["insp", "Inspiration"]] : []);
+const src = k => k === "insp" ? `img/${w.insp}.jpg` : `img/${w.id}-${k}.jpg`;
+const altFor = (k, l) => k === "room" ? `${w.t} installed in a room` : k === "insp" ? `Inspiration for ${w.t}` : `${l} of ${w.t}: the knotting and cord`;
+const capFor = j => shots.length > 3 ? `${shots[j][1]} · ${j + 1} / ${shots.length}` : shots[j][1];
+const area = w.w * w.h;
+
+document.getElementById("app").innerHTML = `
+<section class="top" data-hero>
+  <div class="stage">
+    <img id="main" src="${src("room")}" alt="${w.t} installed in a room">
+    <div class="thumbs" role="group" aria-label="Views">${shots.map(([k, l], j) => `<button aria-pressed="${!j}" data-k="${k}" aria-label="${l}"><img src="${src(k)}" alt=""></button>`).join("")}</div>
+    <span class="cap label" id="cap">${capFor(0)}</span>
+  </div>
+  <div class="body">
+    <a class="back label" id="back" href="collection.html"><span data-icon="back"></span> <span id="backT">Back to the collection</span></a>
+    <nav class="crumbs label" aria-label="Breadcrumb"><a href="collection.html">Collection</a><span class="tag" style="margin-left:22px">No. ${String(i + 1).padStart(2, "0")}</span></nav>
+    <span class="ph">${w.ph}</span>
+    <h1 class="t">${w.t}</h1>
+    <div class="pos">${w.pos}</div>
+    <ol class="defs">${w.def.map((d, j) => `<li><span>${j + 1}</span>${d}</li>`).join("")}</ol>
+    <p class="lede">${w.lede}</p>
+    <div class="story">${w.s.map(p => `<p>${p}</p>`).join("")}</div>
+    <div class="spec">
+      <div><span class="label">Width</span><b>${ft(w.w)}</b></div>
+      <div><span class="label">Height</span><b>${ft(w.h)}</b></div>
+      <div><span class="label">Area</span><b class="num">${area % 1 ? area.toFixed(2) : area} sq ft</b></div>
+      <div><span class="label">Palette</span><b>${w.c}</b></div>
+      <div><span class="label">Lookbook</span><b>2025</b></div>
+      <div><span class="label">Made</span><b>By hand, India</b></div>
+    </div>
+    ${KT.materials[w.id] ? `<p class="mat"><span class="label">Material</span>${KT.materials[w.id]}</p>` : ""}
+    <p class="atelier">From the atelier of master craftsman <b>Raja Ram Pradhan</b>. Made to commission; re-scaled and re-coloured on request.</p>
+    <div class="actions"><a class="btn" href="commission.html?work=${w.id}">Enquire about ${w.t} <span class="arr">→</span></a><a class="btn ghost" href="trade.html#pack">Request spec sheet</a></div>
+  </div>
+</section>
+
+${w.insp ? `<section class="sec"><div class="wrap insp">
+  <div class="img-rv"><img src="img/${w.insp}.jpg" alt="Inspiration for ${w.t}" loading="lazy"></div>
+  <div><div class="eyebrow rv"><span class="rod"></span><span class="label">The inspiration</span></div><blockquote class="rv">${w.s[0]}</blockquote></div>
+</div></section>` : ""}
+
+<section class="sec"><div class="wrap">
+  <div class="sec-head"><h2 class="rv">On your wall,<br><em>to scale.</em></h2><p class="rv">Set the size of your wall to see how ${w.t} sits against it, next to a figure 5 ft 9 in tall.</p></div>
+  <div class="viz">
+    <figure class="rv" aria-label="Scale drawing"><svg id="viz" role="img"></svg></figure>
+    <div class="ctl rv">
+      <label for="ww"><span class="label">Wall width <output id="wwo"></output></span><input id="ww" type="range" min="6" max="30" step="0.5"></label>
+      <label for="wh"><span class="label">Ceiling height <output id="who"></output></span><input id="wh" type="range" min="8" max="20" step="0.5" value="10"></label>
+      <p class="fit" id="fit" aria-live="polite"></p>
+      <p class="muted" style="font-size:16px">Every work can be commissioned in a bespoke size and palette for your space.</p>
+    </div>
+  </div>
+</div></section>
+
+<div class="knot-rule"></div>
+<section><div class="wrap next">
+  <a href="work.html?w=${prev.id}"><span class="label">Previous</span><b>${prev.t}</b></a>
+  <a href="work.html?w=${next.id}"><span class="label">Next</span><b>${next.t}</b></a>
+</div></section>`;
+
+(() => {
+  let ref; try { ref = document.referrer ? new URL(document.referrer) : null; } catch { ref = null; }
+  const same = ref && ref.origin === location.origin && ref.href !== location.href;
+  if (!same) return;
+  const path = ref.pathname.split("/").pop() || "index.html";
+  const names = { "index.html": "Back to home", "collection.html": "Back to the collection", "installations.html": "Back to sculpture", "trade.html": "Back to trade", "journal.html": "Back to the journal", "atelier.html": "Back to the atelier" };
+  if (path.startsWith("work.html")) return;
+  document.getElementById("backT").textContent = names[path] || "Back";
+  document.getElementById("back").addEventListener("click", e => { e.preventDefault(); history.back(); });
+})();
+const main = document.getElementById("main"), cap = document.getElementById("cap");
+const thumbs = [...document.querySelectorAll(".thumbs button")];
+let cur = 0;
+function show(j) {
+  j = (j + shots.length) % shots.length; if (j === cur) return; cur = j;
+  const [k, l] = shots[j];
+  main.style.opacity = 0;
+  setTimeout(() => { main.onload = () => main.style.opacity = 1; main.src = src(k); main.alt = altFor(k, l); }, 250);
+  cap.textContent = capFor(j);
+  thumbs.forEach((x, n) => x.setAttribute("aria-pressed", n === j));
+}
+document.querySelector(".thumbs").onclick = e => { const b = e.target.closest("button"); if (b) show(thumbs.indexOf(b)); };
+addEventListener("keydown", e => {
+  if (e.target.closest?.("input,textarea,select") || main.getBoundingClientRect().bottom < 0) return;
+  if (e.key === "ArrowRight") show(cur + 1); else if (e.key === "ArrowLeft") show(cur - 1);
+});
+let x0 = null;
+main.parentNode.addEventListener("touchstart", e => x0 = e.touches[0].clientX, { passive: true });
+main.parentNode.addEventListener("touchend", e => { if (x0 === null) return; const dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 40) show(cur + (dx < 0 ? 1 : -1)); x0 = null; });
+addEventListener("load", () => shots.forEach(([k]) => { new Image().src = src(k); }));
+
+const ww = document.getElementById("ww"), wh = document.getElementById("wh");
+ww.value = Math.max(12, Math.ceil(w.w + 7));
+function draw() {
+  const W = +ww.value, H = +wh.value, pad = 1.6, P = 5.75;
+  document.getElementById("wwo").textContent = `· ${ft(W)}`; document.getElementById("who").textContent = `· ${ft(H)}`;
+  const aw = w.w, ah = w.h, bottom = Math.max(1.5, 5.25 - ah / 2), top = bottom + ah;
+  const ax = Math.max(pad + 3.2, (W - aw) / 2 + 1.2), fits = aw + 4 <= W && top + 0.75 <= H;
+  const vbW = W + pad * 2, vbH = H + pad * 2, X = x => pad + x, Y = y => pad + H - y;
+  const ink = "#1A1613", soft = "#7C7268", line = "rgba(26,22,19,.25)";
+  const px = Math.min(W - 1.4, 1.4);
+  document.getElementById("viz").setAttribute("viewBox", `0 0 ${vbW} ${vbH}`);
+  document.getElementById("viz").setAttribute("aria-label", `${w.t}, ${ft(aw)} by ${ft(ah)}, on a ${ft(W)} wall with a ${ft(H)} ceiling`);
+  document.getElementById("viz").innerHTML = `
+    <defs><pattern id="tx" patternUnits="userSpaceOnUse" width=".5" height=".7" x="${X(ax)}" y="${Y(top)}">
+      <rect width=".5" height=".7" fill="${w.tone}"/>
+      <path d="M.06 0V.7M.19 0V.7M.31 0V.7M.44 0V.7" stroke="rgba(255,255,255,.16)" stroke-width=".035"/>
+      <path d="M.25 .12L.42 .35L.25 .58L.08 .35Z" fill="none" stroke="rgba(255,255,255,.35)" stroke-width=".03"/></pattern></defs>
+    <rect x="${X(0)}" y="${Y(H)}" width="${W}" height="${H}" fill="#EFE8DC"/>
+    <line x1="${X(0)}" y1="${Y(0)}" x2="${X(W)}" y2="${Y(0)}" stroke="${ink}" stroke-width=".06"/>
+    <line x1="${X(0)}" y1="${Y(H)}" x2="${X(W)}" y2="${Y(H)}" stroke="${line}" stroke-width=".04" stroke-dasharray=".2 .2"/>
+    <line x1="${X(ax - .25)}" y1="${Y(top)}" x2="${X(ax + aw + .25)}" y2="${Y(top)}" stroke="#B4904A" stroke-width=".09"/>
+    <circle cx="${X(ax - .25)}" cy="${Y(top)}" r=".1" fill="#B4904A"/><circle cx="${X(ax + aw + .25)}" cy="${Y(top)}" r=".1" fill="#B4904A"/>
+    <rect x="${X(ax)}" y="${Y(top)}" width="${aw}" height="${ah}" fill="url(#tx)"/><text x="${X(ax + aw / 2)}" y="${Y(bottom) - .35}" text-anchor="middle" font-family="Josefin Sans,sans-serif" font-size=".32" letter-spacing=".08" fill="rgba(255,255,255,.75)">${w.t.toUpperCase()}</text>
+    <g stroke="${soft}" stroke-width=".03" fill="${soft}" font-family="Josefin Sans,sans-serif" font-size=".36" letter-spacing=".04">
+      <line x1="${X(ax)}" y1="${Y(top) - .45}" x2="${X(ax + aw)}" y2="${Y(top) - .45}"/><text x="${X(ax + aw / 2)}" y="${Y(top) - .6}" text-anchor="middle" stroke="none">${ft(aw)}</text>
+      <line x1="${X(ax + aw) + .45}" y1="${Y(top)}" x2="${X(ax + aw) + .45}" y2="${Y(bottom)}"/><text x="${X(ax + aw) + .62}" y="${Y(bottom + ah / 2)}" stroke="none">${ft(ah)}</text>
+      <text x="${X(0)}" y="${Y(0) + .62}" stroke="none">WALL ${ft(W).toUpperCase()}</text>
+      <text x="${X(W)}" y="${Y(H) - .25}" text-anchor="end" stroke="none">CEILING ${ft(H).toUpperCase()}</text>
+    </g>
+    <g fill="${ink}" opacity=".78">
+      <circle cx="${X(px)}" cy="${Y(P - .38)}" r=".38"/>
+      <rect x="${X(px) - .42}" y="${Y(P - .82)}" width=".84" height="2.3" rx=".3"/>
+      <rect x="${X(px) - .36}" y="${Y(2.75)}" width=".32" height="2.75" rx=".12"/><rect x="${X(px) + .04}" y="${Y(2.75)}" width=".32" height="2.75" rx=".12"/>
+    </g>`;
+  document.getElementById("fit").textContent = fits
+    ? `${w.t} sits comfortably on this wall, with ${ft(+(W - aw).toFixed(1))} of breathing room across.`
+    : `This wall is tight for ${w.t} at its standard size. We can scale it to fit; tell us your dimensions.`;
+}
+ww.oninput = wh.oninput = draw; draw();
+</script>
+</body>
+</html>

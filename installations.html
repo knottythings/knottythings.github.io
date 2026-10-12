@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sculpture &amp; Installation — Knotty Things</title>
+<meta name="description" content="Billow and Meander: macramé sculpture on stainless steel, and suspended installations at architectural scale.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Josefin+Sans:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css?v=2">
+<style>
+.intro{background:var(--ink);color:var(--bone);position:relative;overflow:hidden;min-height:88vh;display:flex;align-items:flex-end}
+.intro canvas{position:absolute;inset:0;width:100%;height:100%}
+.intro .wrap{position:relative;z-index:2;padding-block:180px 80px;width:100%}
+.intro h1{font-size:var(--t-xxl);line-height:.9;max-width:12ch}
+.intro h1 em{color:var(--cord)}
+.intro p{max-width:46ch;margin-top:30px;color:rgba(243,238,230,.75)}
+.intro .label{color:var(--brass);display:block;margin-bottom:24px}
+.piece{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:clamp(30px,6vw,100px);align-items:center;padding-block:clamp(90px,12vw,170px)}
+.piece:nth-of-type(even) .visual{order:2}
+.visual{position:relative;aspect-ratio:4/5;overflow:hidden;display:flex;align-items:flex-end;padding:28px;color:var(--bone)}
+.visual.billow,.visual.meander{padding:0;background:var(--linen)}
+.visual > img{width:100%;height:100%;object-fit:cover}
+.ph{font-family:var(--sans);font-size:13px;letter-spacing:.08em;color:var(--ink-3)}
+.piece h2{font-size:clamp(64px,8vw,130px);line-height:.88;margin:12px 0 8px}
+.piece .pos{font-style:italic;color:var(--ink-2)}
+.piece ol{list-style:none;margin:22px 0 30px;border-left:1px solid var(--brass);padding-left:22px;color:var(--ink-2)}
+.piece ol li span{font-family:var(--sans);font-size:10px;color:var(--brass);margin-right:8px}
+.piece .lede{font-size:var(--t-m);font-style:italic;color:var(--oxblood);margin-bottom:18px}
+.piece p.s{max-width:46ch;margin-bottom:16px}
+.status{display:inline-flex;gap:10px;align-items:center;margin-bottom:22px;color:var(--reed)}
+.status::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--brass)}
+.specline{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:16px 0;margin:26px 0 32px;font-family:var(--sans);font-size:11px;letter-spacing:.16em;text-transform:uppercase;line-height:2;color:var(--ink-2)}
+.capab{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line-d)}
+.capab div{padding:30px 24px 0 0}
+.capab div+div{padding-left:24px;border-left:1px solid var(--line-d)}
+.capab h3{font-size:var(--t-m);margin:14px 0 10px}
+.capab .label{color:var(--brass)}
+@media (max-width:960px){.piece{grid-template-columns:1fr}.piece:nth-of-type(even) .visual{order:0}.capab{grid-template-columns:1fr 1fr}.capab div:nth-child(3){padding-left:0;border-left:0}}
+@media (max-width:560px){.capab{grid-template-columns:1fr}.capab div+div{padding-left:0;border-left:0;border-top:1px solid var(--line-d);padding-top:24px}}
+</style>
+</head>
+<body data-page="installations">
+<header class="intro" data-hero>
+  <div class="wrap">
+    <span class="label">Sculpture · Installation · 2026</span>
+    <h1>From the wall, <em>into space.</em></h1>
+    <p>In 2026 the studio set macramé on stainless steel and lifted it off the wall: sculpture that occupies a room the way water does, and installations that hang across a ceiling.</p>
+  </div>
+</header>
+
+<main class="wrap" id="pieces"></main>
+
+<section class="sec dark"><div class="wrap">
+  <div class="sec-head"><h2 class="rv">What it takes to<br><em>build at this scale.</em></h2><p class="rv">Every sculptural commission moves through the same disciplines, from the first sketch to the final suspension.</p></div>
+  <div class="capab corded">
+    <div class="rv"><span class="label">01</span><h3>Form generation</h3><p class="muted">Sketched on paper, refined on screen, tested in 3D before a single cord is cut.</p></div>
+    <div class="rv"><span class="label">02</span><h3>Structure</h3><p class="muted">Stainless steel and brass frames, made with local vendors to a vision they have never seen before.</p></div>
+    <div class="rv"><span class="label">03</span><h3>The knot</h3><p class="muted">Hundreds of hours by master craftsmen. Prototypes are refined, and sometimes cut in two.</p></div>
+    <div class="rv"><span class="label">04</span><h3>Installation</h3><p class="muted">Delivered and suspended on site. Hands at work, art in progress.</p></div>
+  </div>
+  <div style="margin-top:60px" class="rv"><a class="btn ghost" href="commission.html?work=sculpture">Commission a sculpture or installation <span class="arr">→</span></a></div>
+</div></section>
+
+<script src="assets/data.js?v=2"></script>
+<script src="assets/site.js?v=2"></script>
+<script>
+const pieces = KT.works.filter(w => w.form !== "Tapestry");
+document.getElementById("pieces").innerHTML = pieces.map(w => `
+<article class="piece" id="${w.id}">
+  <div class="visual ${w.id}">${w.id === "billow"
+    ? `<img src="img/billow-room.jpg" alt="Billow, two terra-red macramé waves on a stainless steel form, hung above a wooden credenza">`
+    : `<img src="img/meander-room.jpg" alt="Meander, a red and natural macramé installation suspended across the ceiling of a hotel lobby">`}
+  </div>
+  <div>
+    <span class="status label">${w.status}</span>
+    <div class="ph">${w.ph}</div>
+    <h2>${w.t}</h2>
+    <div class="pos">${w.pos}</div>
+    <ol>${w.def.map((d, j) => `<li><span>${j + 1}</span>${d}</li>`).join("")}</ol>
+    <p class="lede">${w.lede}</p>
+    ${w.s.map(p => `<p class="s">${p}</p>`).join("")}
+    <div class="specline">${w.spec}</div>
+    <a class="btn" href="commission.html?work=${w.id}">Enquire about ${w.t} <span class="arr">→</span></a>
+  </div>
+</article>`).join("");
+
+if (location.hash) setTimeout(() => document.querySelector(location.hash)?.scrollIntoView(), 60);
+</script>
+</body>
+</html>
