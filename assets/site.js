@@ -7,7 +7,7 @@
   const hdr = document.createElement("header");
   hdr.className = "hdr" + (document.body.dataset.header === "light" ? " light" : "");
   hdr.innerHTML = `<div class="in">
-    <a href="index.html" class="logo" aria-label="Knotty Things home">KNOTTY THINGS<small>™</small></a>
+    <a href="index.html" class="logo" aria-label="Knotty Things home"></a>
     <nav aria-label="Primary">${links.map(([h,t,k])=>`<a href="${h}"${k===page?' aria-current="page"':""}>${t}</a>`).join("")}</nav>
     <a class="cta" href="commission.html">Commission</a>
     <button class="burger" aria-expanded="false" aria-controls="drawer">Menu</button></div>`;
@@ -22,6 +22,7 @@
   const ftr = document.createElement("footer");
   ftr.className = "ftr";
   ftr.innerHTML = `<div class="wrap">
+    <a href="index.html" class="logo" aria-label="Knotty Things home"></a>
     <p class="big">Every knot,<br><em>a decision made by hand.</em></p>
     <div class="cols">
       <div><h4>Studio</h4><span>Luxuriously Artisanal. Radically Human.</span><span class="muted" style="color:rgba(243,238,230,.5)">Hyderabad · Handmade in India</span></div>
