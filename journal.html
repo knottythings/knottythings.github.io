@@ -7,7 +7,7 @@
 <meta name="description" content="Process, new work, recognition and travels from the Knotty Things studio.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Josefin+Sans:wght@300;400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=2">
+<link rel="stylesheet" href="assets/site.css?v=3">
 <style>
 .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:40px}
 .tags button{font-family:var(--sans);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;border:1px solid var(--line);background:none;padding:10px 16px;border-radius:999px;cursor:pointer}
@@ -36,8 +36,8 @@
   <div class="tags" id="tags" role="group" aria-label="Filter journal"></div>
 </div></header>
 <main class="wrap feed" id="feed"></main>
-<script src="assets/data.js?v=2"></script>
-<script src="assets/site.js?v=2"></script>
+<script src="assets/data.js?v=3"></script>
+<script src="assets/site.js?v=3"></script>
 <script>
 const tones = { Process:"#3B342E", "New work":"#7A2E22", Events:"#5A1828", Travels:"#2F3A3F", Galleries:"#55613A", Recognition:"#8A6A2E", Atelier:"#3B342E", Craft:"#9A7E58" };
 const tags = ["All", ...new Set(KT.journal.map(j => j.tag))];

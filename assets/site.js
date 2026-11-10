@@ -14,7 +14,7 @@
   document.body.prepend(hdr);
   const drawer = document.createElement("div");
   drawer.className = "drawer"; drawer.id = "drawer";
-  drawer.innerHTML = links.map(([h,t])=>`<a href="${h}">${t}</a>`).join("") + `<a href="commission.html">Commission</a><span class="label">contact@theknottythings.com</span>`;
+  drawer.innerHTML = links.map(([h,t])=>`<a href="${h}">${t}</a>`).join("") + `<a href="commission.html">Commission</a><a href="contact.html">Contact</a><span class="label">contact@theknottythings.com</span>`;
   document.body.append(drawer);
   const burger = hdr.querySelector(".burger");
   burger.onclick = () => { const o = drawer.classList.toggle("open"); hdr.classList.toggle("menu-open", o); burger.setAttribute("aria-expanded", o); burger.textContent = o ? "Close" : "Menu"; document.body.style.overflow = o ? "hidden" : ""; };
@@ -27,7 +27,7 @@
     <div class="cols">
       <div><h4>Studio</h4><span>Luxuriously Artisanal. Radically Human.</span><span class="muted" style="color:rgba(243,238,230,.5)">Hyderabad · Handmade in India</span></div>
       <div><h4>Explore</h4>${links.map(([h,t])=>`<a href="${h}">${t}</a>`).join("")}</div>
-      <div><h4>Contact</h4><a href="mailto:contact@theknottythings.com">contact@theknottythings.com</a><a href="tel:+919717040077">+91 97170 40077</a><a href="tel:+919717844077">+91 97178 44077</a></div>
+      <div><h4>Contact</h4><a href="contact.html">Write to us</a><a href="mailto:contact@theknottythings.com">contact@theknottythings.com</a><a href="tel:+919717040077">+91 97170 40077</a><a href="tel:+919717844077">+91 97178 44077</a></div>
       <div><h4>Follow</h4><a href="https://www.instagram.com/the.knotty.things" target="_blank" rel="noopener">Instagram</a><a href="commission.html">Begin a commission</a><a href="system.html">Design system</a></div>
     </div>
     <div class="base"><span>© 2026 Knotty Things</span><a href="system.html">Design system</a></div></div>`;
@@ -247,3 +247,10 @@
   fav.href = "data:image/svg+xml," + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><rect width="40" height="40" rx="8" fill="#1A1613"/><g transform="translate(0 12)" fill="none" stroke="#D7C8B1" stroke-width="2" stroke-linecap="round"><path d="M2 8 C9 8 11 2.6 16 2.6 C20.5 2.6 19.5 13.4 24 13.4 C29 13.4 31 8 38 8"/><path d="M2 8 C9 8 11 13.4 16 13.4 C20.5 13.4 19.5 2.6 24 2.6 C29 2.6 31 8 38 8"/></g></svg>`);
   document.head.append(fav);
 })();
+
+/* Enquiry forms post to Netlify Forms (form-name + fields as URL-encoded data). Netlify emails each one to the studio and keeps a copy. */
+window.KTsend = async (formName, data) => {
+  const body = new URLSearchParams({ "form-name": formName, ...data });
+  const r = await fetch("/", { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: body.toString() });
+  if (!r.ok) throw new Error("Send failed: " + r.status);
+};

@@ -7,7 +7,7 @@
 <meta name="description" content="For architects, interior designers and art consultants: specifications, bespoke sizing and project support from Knotty Things.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Josefin+Sans:wght@300;400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=2">
+<link rel="stylesheet" href="assets/site.css?v=3">
 <style>
 .offer{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line)}
 .offer div{padding:30px 24px 10px 0}
@@ -70,21 +70,23 @@ form{display:grid;grid-template-columns:1fr 1fr;gap:26px 22px}
     <h2 class="rv">Request the<br><em>trade pack.</em></h2>
     <p class="rv muted" style="margin-top:22px;max-width:40ch">The full lookbook, specifications and a conversation about your project. We reply to trade requests personally.</p>
   </div>
-  <form id="f" novalidate>
-    <div class="f"><label for="n">Name</label><input id="n" required autocomplete="name"></div>
-    <div class="f"><label for="s">Studio / company</label><input id="s" required autocomplete="organization"></div>
-    <div class="f"><label for="e">Email</label><input id="e" type="email" required autocomplete="email"></div>
-    <div class="f"><label for="c">City, country</label><input id="c"></div>
+  <form id="f" name="trade" method="POST" data-netlify="true" netlify-honeypot="website" novalidate>
+    <input type="hidden" name="form-name" value="trade"><input type="hidden" name="subject" value="New trade request — Knotty Things website"><input type="hidden" name="wants">
+    <p hidden><label>Leave this empty <input name="website" tabindex="-1" autocomplete="off"></label></p>
+    <div class="f"><label for="n">Name</label><input id="n" name="name" required autocomplete="name"></div>
+    <div class="f"><label for="s">Studio / company</label><input id="s" name="company" required autocomplete="organization"></div>
+    <div class="f"><label for="e">Email</label><input id="e" name="email" type="email" required autocomplete="email"></div>
+    <div class="f"><label for="c">City, country</label><input id="c" name="city"></div>
     <div class="f full"><label>I'd like</label>
-      <div class="checks"><label><input type="checkbox" checked> Lookbook &amp; specs</label><label><input type="checkbox"> Material samples</label><label><input type="checkbox"> A studio call</label></div></div>
-    <div class="f full"><label for="p">Current project (optional)</label><textarea id="p" rows="2"></textarea></div>
+      <div class="checks"><label><input type="checkbox" value="Lookbook &amp; specs" checked> Lookbook &amp; specs</label><label><input type="checkbox" value="Material samples"> Material samples</label><label><input type="checkbox" value="A studio call"> A studio call</label></div></div>
+    <div class="f full"><label for="p">Current project (optional)</label><textarea id="p" name="project" rows="2"></textarea></div>
     <button class="btn" type="submit">Send request <span class="arr">→</span></button>
     <p class="note" id="note" aria-live="polite"></p>
   </form>
 </div></section>
 
-<script src="assets/data.js?v=2"></script>
-<script src="assets/site.js?v=2"></script>
+<script src="assets/data.js?v=3"></script>
+<script src="assets/site.js?v=3"></script>
 <script>
 const { ft } = KTfmt;
 document.getElementById("rows").innerHTML = KT.works.filter(w => w.form === "Tapestry").map(w => {
@@ -92,9 +94,16 @@ document.getElementById("rows").innerHTML = KT.works.filter(w => w.form === "Tap
   return `<tr><td><a href="work.html?w=${w.id}">${w.t}</a></td><td class="n">${ft(w.w)}</td><td class="n">${ft(w.h)}</td><td class="n">${a % 1 ? a.toFixed(2) : a} sq ft</td><td><span class="sw" style="background:${w.tone}"></span>${w.c}</td><td class="n">${w.w > w.h ? "Landscape" : "Portrait"}</td></tr>`;
 }).join("");
 document.getElementById("f").onsubmit = e => {
-  e.preventDefault(); const f = e.target;
-  const ok = f.n.value.trim() && f.s.value.trim() && f.e.checkValidity();
-  document.getElementById("note").textContent = ok ? "Thank you. In this concept nothing is sent; on the live site this reaches the studio's trade desk." : "Please add your name, studio and a valid email.";
+  e.preventDefault(); const f = e.target, note = document.getElementById("note"), btn = f.querySelector('button[type="submit"]');
+  const ok = f.n.value.trim() && f.s.value.trim() && f.e.value && f.e.checkValidity();
+  if (!ok) { note.textContent = "Please add your name, studio and a valid email."; return; }
+  if (f.elements.website.value) return; // bots fill the hidden field
+  const wants = [...f.querySelectorAll(".checks input:checked")].map(x => x.value).join(", ");
+  btn.disabled = true; note.textContent = "Sending…";
+  KTsend("trade", { name: f.n.value, company: f.s.value, email: f.e.value, city: f.c.value, wants, project: f.p.value, subject: f.elements.subject.value })
+    .then(() => { f.reset(); note.textContent = "Thank you. Your request has reached the studio; we'll reply personally."; })
+    .catch(() => { note.innerHTML = 'Sorry, that didn\'t send. Please try again, or email <a href="mailto:contact@theknottythings.com" style="border-bottom:1px solid">contact@theknottythings.com</a>.'; })
+    .finally(() => { btn.disabled = false; });
 };
 </script>
 </body>
