@@ -250,7 +250,7 @@
 
 /* Enquiry forms post to the studio's Google Apps Script (apps-script/Code.gs), which adds a row to the
    "Knotty Things — Leads" sheet and emails contact@theknottythings.com. Set the deployed /exec URL here. */
-window.KT_FORMS_URL = "PASTE_APPS_SCRIPT_EXEC_URL_HERE";
+window.KT_FORMS_URL = "https://script.google.com/macros/s/AKfycby2-6hY8ofnnDFHVJalNHtOToyYzyYG2wHUj7vRQfCuPhJzSEooOGYKkhXTalQsH9Y/exec";
 window.KTsend = async (formName, data) => {
   const body = new URLSearchParams({ "form-name": formName, page: location.pathname + location.search, ...data });
   const r = await fetch(KT_FORMS_URL, { method: "POST", body });
