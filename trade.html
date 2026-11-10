@@ -70,8 +70,8 @@ form{display:grid;grid-template-columns:1fr 1fr;gap:26px 22px}
     <h2 class="rv">Request the<br><em>trade pack.</em></h2>
     <p class="rv muted" style="margin-top:22px;max-width:40ch">The full lookbook, specifications and a conversation about your project. We reply to trade requests personally.</p>
   </div>
-  <form id="f" name="trade" method="POST" data-netlify="true" netlify-honeypot="website" novalidate>
-    <input type="hidden" name="form-name" value="trade"><input type="hidden" name="subject" value="New trade request — Knotty Things website"><input type="hidden" name="wants">
+  <form id="f" name="trade" novalidate>
+    <input type="hidden" name="wants">
     <p hidden><label>Leave this empty <input name="website" tabindex="-1" autocomplete="off"></label></p>
     <div class="f"><label for="n">Name</label><input id="n" name="name" required autocomplete="name"></div>
     <div class="f"><label for="s">Studio / company</label><input id="s" name="company" required autocomplete="organization"></div>
@@ -100,7 +100,7 @@ document.getElementById("f").onsubmit = e => {
   if (f.elements.website.value) return; // bots fill the hidden field
   const wants = [...f.querySelectorAll(".checks input:checked")].map(x => x.value).join(", ");
   btn.disabled = true; note.textContent = "Sending…";
-  KTsend("trade", { name: f.n.value, company: f.s.value, email: f.e.value, city: f.c.value, wants, project: f.p.value, subject: f.elements.subject.value })
+  KTsend("trade", { name: f.n.value, company: f.s.value, email: f.e.value, city: f.c.value, wants, project: f.p.value })
     .then(() => { f.reset(); note.textContent = "Thank you. Your request has reached the studio; we'll reply personally."; })
     .catch(() => { note.innerHTML = 'Sorry, that didn\'t send. Please try again, or email <a href="mailto:contact@theknottythings.com" style="border-bottom:1px solid">contact@theknottythings.com</a>.'; })
     .finally(() => { btn.disabled = false; });

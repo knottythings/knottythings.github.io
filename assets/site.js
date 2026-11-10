@@ -30,7 +30,7 @@
       <div><h4>Contact</h4><a href="contact.html">Write to us</a><a href="mailto:contact@theknottythings.com">contact@theknottythings.com</a><a href="tel:+919717040077">+91 97170 40077</a><a href="tel:+919717844077">+91 97178 44077</a></div>
       <div><h4>Follow</h4><a href="https://www.instagram.com/the.knotty.things" target="_blank" rel="noopener">Instagram</a><a href="commission.html">Begin a commission</a><a href="system.html">Design system</a></div>
     </div>
-    <div class="base"><span>© 2026 Knotty Things</span><a href="system.html">Design system</a></div></div>`;
+    <div class="base"><span>© 2026 Knotty Things</span><span><a href="privacy.html">Privacy</a> · <a href="system.html">Design system</a></span></div></div>`;
   document.body.append(ftr);
 
   const darkSecs = [...document.querySelectorAll(".dark, .ftr")];
@@ -248,9 +248,12 @@
   document.head.append(fav);
 })();
 
-/* Enquiry forms post to Netlify Forms (form-name + fields as URL-encoded data). Netlify emails each one to the studio and keeps a copy. */
+/* Enquiry forms post to the studio's Google Apps Script (apps-script/Code.gs), which adds a row to the
+   "Knotty Things — Leads" sheet and emails contact@theknottythings.com. Set the deployed /exec URL here. */
+window.KT_FORMS_URL = "PASTE_APPS_SCRIPT_EXEC_URL_HERE";
 window.KTsend = async (formName, data) => {
-  const body = new URLSearchParams({ "form-name": formName, ...data });
-  const r = await fetch("/", { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: body.toString() });
-  if (!r.ok) throw new Error("Send failed: " + r.status);
+  const body = new URLSearchParams({ "form-name": formName, page: location.pathname + location.search, ...data });
+  const r = await fetch(KT_FORMS_URL, { method: "POST", body });
+  const j = await r.json().catch(() => ({}));
+  if (!r.ok || !j.ok) throw new Error("Send failed: " + (j.msg || r.status));
 };

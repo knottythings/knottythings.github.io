@@ -70,8 +70,8 @@ legend{font-size:var(--t-l);line-height:1.05;margin-bottom:36px;font-weight:300}
 
   <main class="main">
     <div class="prog" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
-    <form id="form" name="commission" method="POST" data-netlify="true" netlify-honeypot="website" novalidate>
-      <input type="hidden" name="form-name" value="commission"><input type="hidden" name="subject" value="New commission brief — Knotty Things website"><input type="hidden" name="artwork">
+    <form id="form" name="commission" novalidate>
+      <input type="hidden" name="artwork">
       <p hidden><label>Leave this empty <input name="website" tabindex="-1" autocomplete="off"></label></p>
       <fieldset data-step="1"><span class="stepname label">Step 1 of 4 · You</span><legend>Who are we creating for?</legend>
         <div class="opts" role="radiogroup">
@@ -152,7 +152,7 @@ form.onsubmit = e => {
   if (cur < steps.length - 1) { show(cur + 1); scrollTo({ top: 0, behavior: "smooth" }); return; }
   if (form.elements.website.value) return; // bots fill the hidden field
   const data = { who: val("who"), space: val("space"), city: val("city"), wall_size: val("wall_size"), artwork: val("work"),
-    name: val("name"), email: val("email"), phone: val("phone"), timeline: val("timeline"), message: val("message"), subject: form.elements.subject.value };
+    name: val("name"), email: val("email"), phone: val("phone"), timeline: val("timeline"), message: val("message") };
   go.disabled = true; go.innerHTML = 'Sending…';
   KTsend("commission", data).then(() => {
     form.hidden = true; document.querySelector(".prog").hidden = true; document.getElementById("done").classList.add("on");

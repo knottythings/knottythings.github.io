@@ -35,8 +35,8 @@
   <div>
     <div class="direct"><span class="label">Or speak to us</span><a href="mailto:contact@theknottythings.com">contact@theknottythings.com</a><a href="tel:+919717040077">+91 97170 40077</a><a href="tel:+919717844077">+91 97178 44077</a></div>
   </div>
-  <form id="f" name="contact" method="POST" data-netlify="true" netlify-honeypot="website" novalidate>
-    <input type="hidden" name="form-name" value="contact"><input type="hidden" name="subject" value="New enquiry — Knotty Things website">
+  <form id="f" name="contact" novalidate>
+    
     <p hidden><label>Leave this empty <input name="website" tabindex="-1" autocomplete="off"></label></p>
     <div class="f"><label for="n">Name</label><input id="n" name="name" required autocomplete="name"></div>
     <div class="f"><label for="e">Email</label><input id="e" name="email" type="email" required autocomplete="email"></div>
@@ -56,7 +56,7 @@ document.getElementById("f").onsubmit = e => {
   if (!f.n.value.trim() || !f.e.value || !f.e.checkValidity() || !f.m.value.trim()) { note.textContent = "Please add your name, a valid email and a message."; return; }
   if (f.elements.website.value) return; // bots fill the hidden field
   btn.disabled = true; note.textContent = "Sending…";
-  KTsend("contact", { name: f.n.value, email: f.e.value, phone: f.ph.value, city: f.c.value, message: f.m.value, subject: f.elements.subject.value })
+  KTsend("contact", { name: f.n.value, email: f.e.value, phone: f.ph.value, city: f.c.value, message: f.m.value })
     .then(() => { f.reset(); note.textContent = "Thank you. Your message has reached the studio; we'll reply personally."; })
     .catch(() => { note.innerHTML = 'Sorry, that didn\'t send. Please try again, or email <a href="mailto:contact@theknottythings.com" style="border-bottom:1px solid">contact@theknottythings.com</a>.'; })
     .finally(() => { btn.disabled = false; });

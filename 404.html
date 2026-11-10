@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Page not found — Knotty Things</title>
+<meta name="robots" content="noindex">
+<base href="/">
+<script>
+  // Old Wix addresses not covered by a redirect page: send them somewhere useful.
+  (function () {
+    var p = location.pathname;
+    if (/^\/(product-page|category)\//.test(p)) location.replace("/collection.html");
+    else if (/^\/(event-details|service-page|booking-calendar)\//.test(p)) location.replace("/");
+  })();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Josefin+Sans:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css?v=3">
+</head>
+<body data-page="404" data-header="light">
+<header class="phero"><div class="wrap">
+  <span class="label">Page not found</span>
+  <h1>This thread <em>leads nowhere.</em></h1>
+  <p>The page you were looking for has moved or no longer exists.</p>
+  <p style="margin-top:36px"><a class="btn" href="/">Return home <span class="arr">→</span></a> &nbsp; <a class="btn ghost" href="/collection.html">See the collection</a></p>
+</div></header>
+<script src="/assets/data.js?v=3"></script>
+<script src="/assets/site.js?v=3"></script>
+</body>
+</html>
