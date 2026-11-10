@@ -59,15 +59,7 @@ window.KT = {
       s:["Not hung on a wall. It inhabits the space beneath it.","Form generation, material manipulation and structural engineering working as one. A miniature exists today; the full installation is in development."]}
   ],
   journal: [
-    {d:"2026-09-28",tag:"Process",t:"The grinder runs before the artisan begins",x:"Every design is sketched on paper, refined on screen, pulled apart and put back together until the vision and the form agree. This one is inspired by Fila X and Fila Y: a new direction in the series.",img:null},
-    {d:"2026-09-28",tag:"Atelier",t:"Hands at work. Art in progress.",x:"Kōmyō, being installed. Some days are about the doing, not the telling.",img:"komyo-detail"},
-    {d:"2026-09-21",tag:"Process",t:"Don't marry your first idea",x:"A prototype in brass, fiber and reed took hundreds of hours. So we cut it in two, because something better was waiting on the other side of it.",img:null},
-    {d:"2026-09-20",tag:"New work",t:"Billow: the wave has arrived",x:"A stainless steel structure gives it form; terra-toned macramé gives it soul. Yarn art at a scale and dimension Knotty Things has never explored before.",img:null},
-    {d:"2026-09-19",tag:"Events",t:"Design Democracy 2026, HITEX Hyderabad",x:"Three days. More than 200 brands.",img:null},
-    {d:"2026-09-18",tag:"Travels",t:"Colorado, we are coming",x:"Something handmade is making its way across the world, to a place it has never been seen before.",img:null},
-    {d:"2026-09-14",tag:"Craft",t:"The packaging is the first artwork",x:"A commissioned Dripping Gold travelled in a thick paper roll that absorbs every shock, branded wooden lids at both ends, tied with beige thread and finished with off-white tape.",img:"dripping-gold-detail"},
-    {d:"2026-09-11",tag:"New work",t:"Meander: structural yarn art",x:"A miniature of what will become a 70 ft long, 25 ft wide, 10 ft high installation, suspended from the ceiling on a stainless steel structure.",img:null},
-    {d:"2026-08-22",tag:"Galleries",t:"Now at Ekchitra Art Gallery, Hyderabad",x:"Knotty Things is now available at Ekchitra in Madhapur, curated by fine arts practitioner and muralist Annapurna Madipadiga.",img:null},
-    {d:"2026-07-24",tag:"Recognition",t:"When the Minister of Textiles says wow",x:"At Indie Haat, Shri Giriraj Singh, Minister of Textiles, touched the fiber, watched our master craftsman knot in real time and asked how Knotty Things can grow on the international stage.",img:null}
+    {d:"2026-09-20",tag:"New work",t:"Billow: the wave has arrived",x:"A stainless steel structure gives it form; terra-toned macramé gives it soul. Yarn art at a scale and dimension Knotty Things has never explored before.",img:"journal-billow"},
+    {d:"2026-09-11",tag:"New work",t:"Meander: structural yarn art",x:"A miniature of what will become a 70 ft long, 25 ft wide, 10 ft high installation, suspended from the ceiling on a stainless steel structure.",img:"journal-meander-miniature"}
   ]
 };
