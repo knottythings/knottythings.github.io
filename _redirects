@@ -1,0 +1,18 @@
+# Old Wix addresses -> new pages (301 = moved permanently, keeps Google links working)
+/product-page/ascend          /work.html?w=ascend          301
+/product-page/dripping-gold   /work.html?w=dripping-gold   301
+/product-page/onda            /work.html?w=onda            301
+/product-page/reef            /work.html?w=reef            301
+/product-page/komeo           /work.html?w=komyo           301
+/product-page/repose          /work.html?w=repose          301
+/product-page/*               /collection.html             301
+/category/*                   /collection.html             301
+/artworks                     /collection.html             301
+/contact                      /contact.html                301
+# Leftover Wix template pages (events, treatments, bookings) were never Knotty Things content
+/event-details/*              /                            301
+/service-page/*               /                            301
+/events                       /                            301
+/treatments                   /                            301
+/membership                   /                            301
+/blank                        /                            301
